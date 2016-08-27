@@ -17,13 +17,11 @@ public class EventWoodenBlockade : EventBase
             "Push with bare hands",
             (c) =>
             {
-                Debug.Log("1");
                 var rand = Random.Range(0f, 1f);
+                Debug.Log(rand);
                 if (rand < .5f)
                 {
-                    Debug.Log("2");
                     c.Traits.Add(GameManager.GetTrait("Injured"));
-                    Debug.Log("3");
                     c.Health -= 1;
                     GameManager.DisplayEventResult("<color=blue>" + c.Name + "</color> successfully pushed the wood away but a big chunk fell on him. He is now <color=red>injured</color>");
                 }

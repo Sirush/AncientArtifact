@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     {
         if (Current == null)
             Current = this;
+
+        Traits = new Dictionary<string, Trait>();
+        Traits.Add("Injured", new Trait("Injured", "Missing a leg", Color.red));
     }
 
     public static void DoEvent(EventBase e)
