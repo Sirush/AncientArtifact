@@ -12,11 +12,14 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, Trait> Traits;
     public GameObject EventCanvas;
     public GameObject UIEventText, UIEventButton;
+    public GameObject CardTemplate;
 
     void Start()
     {
         if (Current == null)
             Current = this;
+
+            CardCollection.InitializeCards();
 
         Traits = new Dictionary<string, Trait>();
         Traits.Add("Injured", new Trait("Injured", "Missing a leg", Color.red));

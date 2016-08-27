@@ -1,0 +1,30 @@
+﻿[
+    {
+        "Id": "Axe5",
+        "Name": "Axe",
+        "Description": "A sturdy axe",
+        "Uses": 2,
+        "Attack": 5,
+        "Shield": 0,
+        "Dodge": false,
+        "UseSelf": false,
+        "UseAllies": false,
+        "UseEnemies": true,
+        "UseAllAllies": false,
+        "UseAllEnemies": false
+    },
+    {
+        "Id": "Axe6",
+        "Name": "Axe",
+        "Description": "A sturdy axe",
+        "Uses": 3,
+        "Attack": 6,
+        "Shield": 0,
+        "Dodge": false,
+        "UseSelf": false,
+        "UseAllies": false,
+        "UseEnemies": true,
+        "UseAllAllies": false,
+        "UseAllEnemies": false
+    }
+]

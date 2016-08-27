@@ -55,7 +55,6 @@ public class EventBase : MonoBehaviour
         {
             if (action.Tag == "Character")
             {
-                var c = character;
                 results.Add(new EventResult(action.Text, action.OnCharacter, null));
             }
             else
@@ -67,7 +66,7 @@ public class EventBase : MonoBehaviour
                         if (tag == action.Tag)
                         {
                             var i = item;
-                            results.Add(new EventResult(action.Text + " <color=yellow>" + item.Name + "</color>", null, action.OnItem, i));
+                            results.Add(new EventResult(action.Text + " <color=yellow>" + i.Name + "</color>", null, action.OnItem, i));
                             break;
                         }
                     }

@@ -21,7 +21,7 @@ public class EventWoodenBlockade : EventBase
                 Debug.Log(rand);
                 if (rand < .5f)
                 {
-                    c.Traits.Add(GameManager.GetTrait("Injured"));
+                    GameManager.GetTrait("Injured").AddToCharacter(c);
                     c.Health -= 1;
                     GameManager.DisplayEventResult("<color=blue>" + c.Name + "</color> successfully pushed the wood away but a big chunk fell on him. He is now <color=red>injured</color>");
                 }
