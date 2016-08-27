@@ -19,10 +19,24 @@ public class GameManager : MonoBehaviour
         if (Current == null)
             Current = this;
 
-            CardCollection.InitializeCards();
+        CardCollection.InitializeCards();
+        ItemCollection.InitializeItems();
 
         Traits = new Dictionary<string, Trait>();
         Traits.Add("Injured", new Trait("Injured", "Missing a leg", Color.red));
+
+        Test();
+    }
+
+    void Test()
+    {
+        foreach (var c in GetAliveCharacters())
+        {
+            c.AddItem("Axe");
+            c.AddItem("Axe");
+            c.AddItem("Axe");
+        }
+        GetComponent<Battle>().StartBattle();
     }
 
     public static void DoEvent(EventBase e)

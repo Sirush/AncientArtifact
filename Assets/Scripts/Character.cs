@@ -45,6 +45,16 @@ public class Character : MonoBehaviour
 
     }
 
+    public void AddItem(string name)
+    {
+        var item = ItemCollection.GetItem(name);
+        Inventory.Add(item);
+        foreach (var card in item.DefaultCards)
+        {
+            AddCard(card);
+        }
+    }
+
     public void AddCard(Card card)
     {
         Deck.Add(card);

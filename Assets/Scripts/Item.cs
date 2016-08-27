@@ -15,6 +15,11 @@ public class Item {
     
     private List<Card> _currentCards;
 
+    public void InitializeItem()
+    {
+        _currentCards = DefaultCards;
+    }
+
     public void Remove()
     {
 

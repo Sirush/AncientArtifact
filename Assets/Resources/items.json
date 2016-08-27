@@ -1,0 +1,9 @@
+[
+    {
+        "Id": "Axe",
+        "Name": "Axe",
+        "Description": "A sturdy axe",
+        "Tags": ["Sharp"],
+        "Cards": ["Axe5", "Axe5", "Axe6"]
+    }
+]

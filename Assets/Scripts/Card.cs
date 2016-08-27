@@ -30,12 +30,14 @@ public class Card
             target.Shield += Shield;
     }
 
-    public void DisplayCard()
+    public GameObject DisplayCard()
     {
         var card = GameObject.Instantiate(GameManager.Current.CardTemplate).transform;
         card.FindChildren("Name").GetComponent<Text>().text = Name;
         card.FindChildren("Uses").GetComponent<Text>().text = UseNumber < 100 ? UseNumber.ToString() : "∞";
         card.FindChildren("Atk").GetComponent<Text>().text = Attack.ToString();
         card.FindChildren("Shield").GetComponent<Text>().text = Shield.ToString();
+
+        return card.gameObject;
     }
 }
