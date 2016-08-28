@@ -1,4 +1,4 @@
-// LeanTween version 2.33 - http://dentedpixel.com/developer-diary/
+// LeanTween version 2.34 - http://dentedpixel.com/developer-diary/
 //
 // The MIT License (MIT)
 //
@@ -630,10 +630,8 @@ public static void update() {
 							alphaRecursive(tween.trans, val, tween.useRecursion);
 							#else
 
-							SpriteRenderer ren = trans.gameObject.GetComponent<SpriteRenderer>();
-
-							if(ren!=null){
-								ren.color = new Color( ren.color.r, ren.color.g, ren.color.b, val);
+							if(tween.spriteRen!=null){
+								tween.spriteRen.color = new Color( tween.spriteRen.color.r, tween.spriteRen.color.g, tween.spriteRen.color.b, val);
 								alphaRecursiveSprite(tween.trans, val);
 							}else{
 								alphaRecursive(tween.trans, val, tween.useRecursion);
@@ -654,9 +652,9 @@ public static void update() {
 							Color toColor = tweenColor(tween, val);
 
 							#if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2
-							SpriteRenderer ren = trans.gameObject.GetComponent<SpriteRenderer>();
-							if(ren!=null){
-								ren.color = toColor;
+
+							if(tween.spriteRen!=null){
+								tween.spriteRen.color = toColor;
 								colorRecursiveSprite( trans, toColor);
 							}else{
 							#endif
@@ -669,6 +667,8 @@ public static void update() {
 			    			#endif
 		    				if(dt!=0f && tween.onUpdateColor!=null){
 								tween.onUpdateColor(toColor);
+							}else if(dt!=0f && tween.onUpdateColorObject!=null){
+								tween.onUpdateColorObject(toColor, tween.onUpdateParam);
 							}
 						}
 						#if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2 && !UNITY_4_3 && !UNITY_4_5
@@ -1592,7 +1592,13 @@ public static LTDescr play(RectTransform rectTransform, UnityEngine.Sprite[] spr
 * LeanTween.alpha(gameObject, 1f, 1f) .setDelay(1f);
 */
 public static LTDescr alpha(GameObject gameObject, float to, float time){
-	return pushNewTween( gameObject, new Vector3(to,0,0), time, TweenAction.ALPHA, options() );
+	LTDescr lt = pushNewTween( gameObject, new Vector3(to,0,0), time, TweenAction.ALPHA, options() );
+
+	#if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2
+	SpriteRenderer ren = gameObject.GetComponent<SpriteRenderer>();
+	lt.spriteRen = ren;
+	#endif
+	return lt;
 }
 
 /**
@@ -1678,7 +1684,12 @@ public static LTDescr alphaVertex(GameObject gameObject, float to, float time){
 * LeanTween.color(gameObject, Color.yellow, 1f) .setDelay(1f);
 */
 public static LTDescr color(GameObject gameObject, Color to, float time){
-	return pushNewTween( gameObject, new Vector3(1.0f, to.a, 0.0f), time, TweenAction.COLOR, options().setPoint( new Vector3(to.r, to.g, to.b) ) );
+	LTDescr lt = pushNewTween( gameObject, new Vector3(1.0f, to.a, 0.0f), time, TweenAction.COLOR, options().setPoint( new Vector3(to.r, to.g, to.b) ) );
+	#if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2
+	SpriteRenderer ren = gameObject.GetComponent<SpriteRenderer>();
+	lt.spriteRen = ren;
+	#endif
+	return lt;
 }
 
 #if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2 && !UNITY_4_3 && !UNITY_4_5
@@ -2278,9 +2289,14 @@ public static LTDescr value(GameObject gameObject, Vector3 from, Vector3 to, flo
 * } );<br>
 */
 public static LTDescr value(GameObject gameObject, Color from, Color to, float time){
-	return pushNewTween( gameObject, new Vector3(1f, to.a, 0f), time, TweenAction.CALLBACK_COLOR, options().setPoint( new Vector3(to.r, to.g, to.b) )
-		.setFromColor(from).setHasInitialized(false)
-	);
+	LTDescr lt = pushNewTween( gameObject, new Vector3(1f, to.a, 0f), time, TweenAction.CALLBACK_COLOR, options().setPoint( new Vector3(to.r, to.g, to.b) )
+		.setFromColor(from).setHasInitialized(false) );
+	
+	#if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2
+	SpriteRenderer ren = gameObject.GetComponent<SpriteRenderer>();
+	lt.spriteRen = ren;
+	#endif
+	return lt;
 }
 
 /**
@@ -2364,6 +2380,10 @@ public static LTDescr value(GameObject gameObject, Action<float, float> callOnUp
 */
 
 public static LTDescr value(GameObject gameObject, Action<Color> callOnUpdate, Color from, Color to, float time){
+	return pushNewTween( gameObject, new Vector3(1.0f,to.a,0.0f), time, TweenAction.CALLBACK_COLOR, options().setPoint( new Vector3(to.r, to.g, to.b) )
+		.setAxis( new Vector3(from.r, from.g, from.b) ).setFrom( new Vector3(0.0f, from.a, 0.0f) ).setHasInitialized(false).setOnUpdateColor(callOnUpdate) );
+}
+public static LTDescr value(GameObject gameObject, Action<Color,object> callOnUpdate, Color from, Color to, float time){
 	return pushNewTween( gameObject, new Vector3(1.0f,to.a,0.0f), time, TweenAction.CALLBACK_COLOR, options().setPoint( new Vector3(to.r, to.g, to.b) )
 		.setAxis( new Vector3(from.r, from.g, from.b) ).setFrom( new Vector3(0.0f, from.a, 0.0f) ).setHasInitialized(false).setOnUpdateColor(callOnUpdate) );
 }
@@ -3176,6 +3196,15 @@ public class LTBezierPath {
 	}
 
 	/**
+	* @property {float} distance distance of the path (in unity units)
+	*/
+	public float distance{
+		get{
+			return length;
+		}
+	}
+
+	/**
 	* Retrieve a point along a path
 	* 
 	* @method point
@@ -3325,6 +3354,7 @@ public class LTSpline {
 	*/
 	public float distance = 0f;
 
+	public bool constantSpeed = true;
 
 	public Vector3[] pts;
 	[System.NonSerialized]
@@ -3334,9 +3364,17 @@ public class LTSpline {
 	public bool orientToPath2d;
 	private int numSections;
 	private int currPt;
+
+	public LTSpline( Vector3[] pts ){
+		init( pts, true);
+	}
 	
-	public LTSpline(params Vector3[] pts) {
-		// Debug.Log("pts.Length:"+pts.Length);
+	public LTSpline( Vector3[] pts, bool constantSpeed ) {
+		this.constantSpeed = constantSpeed;
+		init(pts, constantSpeed);
+	}
+
+	private void init( Vector3[] pts, bool constantSpeed){
 		if(pts.Length<4){
 			LeanTween.logError( "LeanTween - When passing values for a spline path, you must pass four or more values!" );
 			return;
@@ -3361,47 +3399,48 @@ public class LTSpline {
 			totalDistance += pointDistance;
 		}
 
-		minSegment = totalDistance / (numSections*SUBLINE_COUNT);
-		//Debug.Log("minSegment:"+minSegment+" numSections:"+numSections);
+		if(constantSpeed){
+			minSegment = totalDistance / (numSections*SUBLINE_COUNT);
+			//Debug.Log("minSegment:"+minSegment+" numSections:"+numSections);
 
-		float minPrecision = minSegment / SUBLINE_COUNT; // number of subdivisions in each segment
-		int precision = (int)Mathf.Ceil(totalDistance / minPrecision) * DISTANCE_COUNT;
-		// Debug.Log("precision:"+precision);
-		if(precision<=1) // precision has to be greater than one
-			precision = 2;
+			float minPrecision = minSegment / SUBLINE_COUNT; // number of subdivisions in each segment
+			int precision = (int)Mathf.Ceil(totalDistance / minPrecision) * DISTANCE_COUNT;
+			// Debug.Log("precision:"+precision);
+			if(precision<=1) // precision has to be greater than one
+				precision = 2;
 
-		ptsAdj = new Vector3[ precision ];
-		earlierPoint = interp( 0f );
-		int num = 1;
-		ptsAdj[0] = earlierPoint;
-		distance = 0f;
-		for(int i = 0; i < precision + 1; i++){
-			float fract = ((float)(i)) / precision;
-			// Debug.Log("fract:"+fract);
-			Vector3 point = interp( fract );
-			float dist = Vector3.Distance(point, earlierPoint);
-			
-			// float dist = (point-earlierPoint).sqrMagnitude;
-			if(dist>=minPrecision || fract>=1.0f){
-				ptsAdj[num] = point;
-				distance += dist; // only add it to the total distance once we know we are adding it as an adjusted point
+			ptsAdj = new Vector3[ precision ];
+			earlierPoint = interp( 0f );
+			int num = 1;
+			ptsAdj[0] = earlierPoint;
+			distance = 0f;
+			for(int i = 0; i < precision + 1; i++){
+				float fract = ((float)(i)) / precision;
+				// Debug.Log("fract:"+fract);
+				Vector3 point = interp( fract );
+				float dist = Vector3.Distance(point, earlierPoint);
+				
+				// float dist = (point-earlierPoint).sqrMagnitude;
+				if(dist>=minPrecision || fract>=1.0f){
+					ptsAdj[num] = point;
+					distance += dist; // only add it to the total distance once we know we are adding it as an adjusted point
 
-				earlierPoint = point;
-				// Debug.Log("fract:"+fract+" point:"+point);
-				num++;
+					earlierPoint = point;
+					// Debug.Log("fract:"+fract+" point:"+point);
+					num++;
+				}
 			}
-		}
-		// make sure there is a point at the very end
-		/*num++;
-		Vector3 endPoint = interp( 1f );
-		ptsAdj[num] = endPoint;*/
-		// Debug.Log("fract 1f endPoint:"+endPoint);
+			// make sure there is a point at the very end
+			/*num++;
+			Vector3 endPoint = interp( 1f );
+			ptsAdj[num] = endPoint;*/
+			// Debug.Log("fract 1f endPoint:"+endPoint);
 
-		ptsAdjLength = num;
+			ptsAdjLength = num;
+		}
 		// Debug.Log("map 1f:"+map(1f)+" end:"+ptsAdj[ ptsAdjLength-1 ]);
 
 		// Debug.Log("ptsAdjLength:"+ptsAdjLength+" minPrecision:"+minPrecision+" precision:"+precision);
-
 	}
 
 	public Vector3 map( float u ){
@@ -3482,7 +3521,7 @@ public class LTSpline {
 	*/
 	public Vector3 point( float ratio ){
 		float t = ratio>1f?1f:ratio;
-		return map(t);
+		return constantSpeed ? map(t) : interp(t);
 	}
 
 	public void place2d( Transform transform, float ratio ){

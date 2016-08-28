@@ -44,6 +44,7 @@ public class LTDescrImpl : LTDescr {
 	public float passed { get; set; }
 	public float delay { get; set; }
 	public float time { get; set; }
+	public float speed{get; set;}
 	public float lastVal { get; set; }
 	private uint _id;
 	public int loopCount { get; set; }
@@ -79,11 +80,15 @@ public class LTDescrImpl : LTDescr {
 	public Action<Vector3> onUpdateVector3 { get; set; }
 	public Action<Vector3,object> onUpdateVector3Object { get; set; }
 	public Action<Color> onUpdateColor { get; set; }
+	public Action<Color,object> onUpdateColorObject { get; set; }
 	public Action onComplete { get; set; }
 	public Action<object> onCompleteObject { get; set; }
 	public object onCompleteParam { get; set; }
 	public object onUpdateParam { get; set; }
 	public Action onStart { get; set; }
+	#if !UNITY_3_5 && !UNITY_4_0 && !UNITY_4_0_1 && !UNITY_4_1 && !UNITY_4_2
+	public SpriteRenderer spriteRen { get; set; }
+	#endif
 
 	#if LEANTWEEN_1
 	public Hashtable optional;
@@ -147,6 +152,7 @@ public class LTDescrImpl : LTDescr {
 		this.loopCount = 0;
 		this.direction = this.directionLast = this.overshoot = 1.0f;
 		this.period = 0.3f;
+		this.speed = -1f;
 		this.point = Vector3.zero;
 		cleanup();
 		
@@ -410,6 +416,16 @@ public class LTDescrImpl : LTDescr {
 				this.onCompleteObject(this.onCompleteParam);
 			}
 		}
+
+		if(this.speed>=0){
+			if(this.type==TweenAction.MOVE_CURVED || this.type==TweenAction.MOVE_CURVED_LOCAL){
+				this.time = this.path.distance / this.speed ;
+			}else if(this.type==TweenAction.MOVE_SPLINE || this.type==TweenAction.MOVE_SPLINE_LOCAL){
+				this.time = this.spline.distance/ this.speed;
+			}else{
+				this.time = (this.to - this.from).magnitude / this.speed;
+			}
+		}
 	}
 
 	public LTDescr setFromColor( Color col ){
@@ -442,6 +458,7 @@ public class LTDescrImpl : LTDescr {
 	*/
 	public LTDescr resume(){
 		this.direction = this.directionLast;
+		
 		return this;
 	}
 
@@ -598,6 +615,19 @@ public class LTDescrImpl : LTDescr {
 		float passedTimeRatio = this.passed / this.time;
 		this.passed = time * passedTimeRatio;
 		this.time = time;
+		return this;
+	}
+
+	/**
+	* Set the finish time of the tween
+	* @method setSpeed
+	* @param {float} speed:float the speed in unity units per second you wish the object to travel (overrides the given time)
+	* @return {LTDescr} LTDescr an object that distinguishes the tween
+	* @example
+	* LeanTween.moveLocalZ( gameObject, 10f, 1f).setSpeed(0.2f) // the given time is ignored when speed is set<br>
+	*/
+	public LTDescr setSpeed( float speed ){
+		this.speed = speed;
 		return this;
 	}
 
@@ -806,11 +836,22 @@ public class LTDescrImpl : LTDescr {
 		this.hasUpdateCallback = true;
 		return this;
 	}
+	public LTDescr setOnUpdateColor( Action<Color,object> onUpdate ){
+		this.onUpdateColorObject = onUpdate;
+		this.hasUpdateCallback = true;
+		return this;
+	}
 
 	#if !UNITY_FLASH
 
 	public LTDescr setOnUpdate( Action<Color> onUpdate ){
 		this.onUpdateColor = onUpdate;
+		this.hasUpdateCallback = true;
+		return this;
+	}
+
+	public LTDescr setOnUpdate( Action<Color,object> onUpdate ){
+		this.onUpdateColorObject = onUpdate;
 		this.hasUpdateCallback = true;
 		return this;
 	}

@@ -6,8 +6,7 @@ using UnityEngine.UI.Extensions;
 using System;
 using UnityEngine.UI;
 
-public class Battle : MonoBehaviour
-{
+public class Battle : MonoBehaviour {
     public List<Character> Enemies;
 
     public GameObject BattleCanvas;
@@ -23,8 +22,7 @@ public class Battle : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-    }
+    {}
 
     public void StartBattle()
     {
@@ -83,6 +81,13 @@ public class Battle : MonoBehaviour
             var card1 = c1.DisplayCard();
             var card2 = c2.DisplayCard();
 
+            //Tweening Sliding effect
+            var pos = card1.transform.localPosition.y;
+            card1.transform.localPosition -= new Vector3(0, 300);
+            card2.transform.localPosition -= new Vector3(0, 300);
+            LeanTween.moveLocalY(card1, pos, UnityEngine.Random.Range(.4f, .8f)).setEase(LeanTweenType.easeOutCubic);
+            LeanTween.moveLocalY(card2, pos, UnityEngine.Random.Range(.4f, .8f)).setEase(LeanTweenType.easeOutCubic);
+
             _cardsObject.Add(card1);
             _cardsObject.Add(card2);
 
@@ -103,6 +108,10 @@ public class Battle : MonoBehaviour
 
         e1.callback.AddListener((e) =>
         {
+            DisableCardSelect(self);
+
+            LeanTween.scale(go, new Vector3(.85f, .85f), .5f).setLoopPingPong().setEase(LeanTweenType.easeOutCirc);
+
             var allies = GameManager.GetAliveCharacters();
 
             go.GetComponentInChildren<NicerOutline>().enabled = true;
@@ -149,6 +158,14 @@ public class Battle : MonoBehaviour
         });
 
         t1.triggers.Add(e1);
+    }
+
+    void DisableCardSelect(int who)
+    {
+        foreach (Transform card in BattleCanvas.transform.FindChildren("Ally" + who).FindChildren("CardPosition"))
+        {
+            card.GetComponent<EventTrigger>().enabled = false;
+        }
     }
 
     void ClearButtons()
