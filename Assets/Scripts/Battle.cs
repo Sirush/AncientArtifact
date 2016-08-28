@@ -14,12 +14,15 @@ public class Battle : MonoBehaviour {
     private Queue<Action> _battleStack;
     private List<GameObject> _cardsObject;
     private List<int> _alreadyPlayed;
+    private int _currentTurn; //0 = player 1 = enemy
+    private List<List<Card>> _enemiesCards;
 
     // Use this for initialization
     void Awake()
     {
         _cardsObject = new List<GameObject>();
         _alreadyPlayed = new List<int>();
+        _enemiesCards = new List<List<Card>>();
     }
 
 
@@ -48,9 +51,73 @@ public class Battle : MonoBehaviour {
         {
             c.CleanDeck();
         }
-        DrawCards();
+
         UpdateHealth();
         _alreadyPlayed.Clear();
+        _enemiesCards.Clear();
+
+
+        if (_currentTurn == 1)
+        {
+            _currentTurn = 0;
+            DrawCards();
+        } else
+        {
+            _currentTurn = 1;
+            DrawCards();
+            StartCoroutine("EnemyTurn");
+        }
+    }
+
+    private IEnumerator EnemyTurn()
+    {
+        yield return new WaitForSeconds(.5f);
+
+        var allies = GameManager.GetAliveCharacters();
+
+        //For each enemy
+        for (int i = 0; i < Enemies.Count; i++)
+        {
+            //Pick randomly one of two cards
+            int rand = UnityEngine.Random.Range(0, 2);
+            var card = _enemiesCards[i][rand];
+
+            var go = BattleCanvas.transform.FindChildren("Enemy" + i).FindChildren("CardPosition").GetChild(rand).gameObject;
+            LeanTween.scale(go, new Vector3(.85f, .85f), .5f).setLoopPingPong().setEase(LeanTweenType.easeOutCirc);
+            go.GetComponentInChildren<NicerOutline>().enabled = true;
+
+
+            if (card.IsUseableOnAllAllies)
+            {
+                _battleStack.Enqueue(() => card.UseCardOnTarget(Enemies.ToArray()));
+            }
+            if (card.IsUseableOnAllEnemies)
+            {
+                _battleStack.Enqueue(() => card.UseCardOnTarget(allies.ToArray()));
+            }
+            if (card.IsUseableOnEnemies)
+                _battleStack.Enqueue(() => { card.UseCardOnTarget(allies[RandomExcludeSelf(i, allies.Count)]); });
+
+            else if (card.IsUseableOnAllies)
+                _battleStack.Enqueue(() => { card.UseCardOnTarget(Enemies[RandomExcludeSelf(i, Enemies.Count)]); });
+            else if (card.IsUseableOnSelf)
+                _battleStack.Enqueue(() => { card.UseCardOnTarget(Enemies[i]); });
+
+            yield return new WaitForSeconds(1f);
+        }
+
+        PlayTurn();
+    }
+
+    int RandomExcludeSelf(int self, int max)
+    {
+        int rand = 0;
+
+        do
+        {
+            rand = UnityEngine.Random.Range(0, max);
+        } while (rand == self);
+        return rand;
     }
 
     void UpdateHealth()
@@ -70,7 +137,13 @@ public class Battle : MonoBehaviour {
 
     public void DrawCards()
     {
-        var characters = GameManager.GetAliveCharacters();
+        List<Character> characters;
+
+        if (_currentTurn == 0)
+            characters = GameManager.GetAliveCharacters();
+        else
+            characters = Enemies;
+
         for (int i = 0; i < characters.Count; i++)
         {
             var c = characters[i];
@@ -86,25 +159,46 @@ public class Battle : MonoBehaviour {
             var c1 = c.Deck[rand1];
             var c2 = c.Deck[rand2];
 
+            if (_currentTurn == 1)
+            {
+                _enemiesCards.Add(new List<Card>());
+                _enemiesCards[i].Add(c1);
+                _enemiesCards[i].Add(c2);
+            }
+
             var card1 = c1.DisplayCard();
             var card2 = c2.DisplayCard();
 
             //Tweening Sliding effect
             var pos = card1.transform.localPosition.y;
-            card1.transform.localPosition -= new Vector3(0, 300);
-            card2.transform.localPosition -= new Vector3(0, 300);
+            if (_currentTurn == 0)
+            {
+                card1.transform.localPosition -= new Vector3(0, 300);
+                card2.transform.localPosition -= new Vector3(0, 300);
+            } else
+            {
+                card1.transform.localPosition += new Vector3(0, 300);
+                card2.transform.localPosition += new Vector3(0, 300);
+            }
             LeanTween.moveLocalY(card1, pos, UnityEngine.Random.Range(.4f, .8f)).setEase(LeanTweenType.easeOutCubic);
             LeanTween.moveLocalY(card2, pos, UnityEngine.Random.Range(.4f, .8f)).setEase(LeanTweenType.easeOutCubic);
 
             _cardsObject.Add(card1);
             _cardsObject.Add(card2);
 
-            var cardPosition = BattleCanvas.transform.FindChildren("Ally" + i).FindChildren("CardPosition");
+            Transform cardPosition;
+            if (_currentTurn == 0)
+                cardPosition = BattleCanvas.transform.FindChildren("Ally" + i).FindChildren("CardPosition");
+            else
+                cardPosition = BattleCanvas.transform.FindChildren("Enemy" + i).FindChildren("CardPosition");
             card1.transform.SetParent(cardPosition, false);
             card2.transform.SetParent(cardPosition, false);
 
-            SetupCard(card1, c1, i);
-            SetupCard(card2, c2, i);
+            if (_currentTurn == 0)
+            {
+                SetupCard(card1, c1, i);
+                SetupCard(card2, c2, i);
+            }
         }
     }
 

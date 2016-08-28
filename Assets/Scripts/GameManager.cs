@@ -37,6 +37,15 @@ public class GameManager : MonoBehaviour
             c.AddItem("Pickaxe");
             c.AddCard("Fist");
         }
+        foreach (var go in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            go.GetComponent<Character>().AddCard("Fist");
+            go.GetComponent<Character>().AddCard("Fist");
+            go.GetComponent<Character>().AddCard("Fist");
+            go.GetComponent<Character>().AddCard("Fist");
+            go.GetComponent<Character>().AddCard("Fist");
+            go.GetComponent<Character>().AddCard("Fist");
+        }
         GetComponent<Battle>().StartBattle();
     }
 
