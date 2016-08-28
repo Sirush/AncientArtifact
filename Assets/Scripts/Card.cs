@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using Newtonsoft.Json;
 
@@ -22,12 +23,16 @@ public class Card
 
     [JsonIgnore] public Action<Character> SpecialEffect;
 
-    public void UseCard(Character target)
+    public void UseCardOnTarget(params Character[] targets)
     {
-        if (Attack != 0)
-            target.Health -= Attack;
-        if (Shield != 0)
-            target.Shield += Shield;
+        foreach (var target in targets)
+        {
+            if (Attack != 0)
+                target.SetHealth(-Attack);
+            if (Shield != 0)
+                target.Shield += Shield;
+        }
+        UseNumber -= 1;
     }
 
     public GameObject DisplayCard()
@@ -39,5 +44,15 @@ public class Card
         card.FindChildren("Shield").GetComponent<Text>().text = Shield.ToString();
 
         return card.gameObject;
+    }
+
+
+    public Card Clone()
+    {
+        var obj = JsonConvert.SerializeObject(this);
+        var card = JsonConvert.DeserializeObject<Card>(obj);
+        card.SpecialEffect = SpecialEffect;
+
+        return card;
     }
 }

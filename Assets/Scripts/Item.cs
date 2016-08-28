@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 [System.Serializable]
 public class Item {
@@ -17,7 +18,25 @@ public class Item {
 
     public void InitializeItem()
     {
-        _currentCards = DefaultCards;
+        _currentCards = new List<Card>();
+
+        foreach (var card in DefaultCards)
+        {
+            _currentCards.Add(card.Clone());
+        }
+    }
+
+    public List<Card> GetCards()
+    {
+        return _currentCards;
+    }
+
+    public Item Clone()
+    {
+        var obj = JsonConvert.SerializeObject(this);
+        var item = JsonConvert.DeserializeObject<Item>(obj);
+
+        return item;
     }
 
     public void Remove()

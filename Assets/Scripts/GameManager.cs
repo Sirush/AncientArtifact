@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager Current;
 
     public List<Character> Characters;
@@ -64,9 +63,7 @@ public class GameManager : MonoBehaviour
                 {
                     var onChar = a.OnCharacter;
                     var child = c;
-                    button.onClick.AddListener(() => onChar(child)
-                        )
-                    ;
+                    button.onClick.AddListener(() => onChar(child));
                 }
                 else
                 {

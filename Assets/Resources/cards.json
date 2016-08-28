@@ -8,7 +8,7 @@
         "Shield": 0,
         "Dodge": false,
         "UseSelf": false,
-        "UseAllies": false,
+        "UseAllies": true,
         "UseEnemies": true,
         "UseAllAllies": false,
         "UseAllEnemies": false
@@ -22,7 +22,7 @@
         "Shield": 0,
         "Dodge": false,
         "UseSelf": false,
-        "UseAllies": false,
+        "UseAllies": true,
         "UseEnemies": true,
         "UseAllAllies": false,
         "UseAllEnemies": false

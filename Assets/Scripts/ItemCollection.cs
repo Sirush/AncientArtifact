@@ -22,7 +22,6 @@ public static class ItemCollection {
             {
                 item.DefaultCards.Add(CardCollection.GetCard(c));
             }
-            item.InitializeItem();
             _items.Add(a["Id"].ToString(), item);
         }
 
