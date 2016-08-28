@@ -151,19 +151,19 @@ namespace QFCore.Editor.Util {
                                                            	<s:String x:Key=""/Default/CodeInspection/Highlighting/InspectionSeverities/=SuggestVarOrType_005FSimpleTypes/@EntryIndexedValue"">DO_NOT_SHOW</s:String>
                                                            	<s:String x:Key=""/Default/CodeInspection/Highlighting/InspectionSeverities/=UnassignedField_002ECompiler/@EntryIndexedValue"">DO_NOT_SHOW</s:String>
                                                            	<s:String x:Key=""/Default/CodeStyle/CodeCleanup/RecentlyUsedProfile/@EntryValue"">Default: Reformat Code</s:String>
-                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/ACCESSOR_DECLARATION_BRACES/@EntryValue"">END_OF_LINE</s:String>
-                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/ACCESSOR_OWNER_DECLARATION_BRACES/@EntryValue"">END_OF_LINE</s:String>
-                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/ANONYMOUS_METHOD_DECLARATION_BRACES/@EntryValue"">END_OF_LINE</s:String>
-                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/CASE_BLOCK_BRACES/@EntryValue"">END_OF_LINE</s:String>
+                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/ACCESSOR_DECLARATION_BRACES/@EntryValue"">NEW_LINE</s:String>
+                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/ACCESSOR_OWNER_DECLARATION_BRACES/@EntryValue"">NEW_LINE</s:String>
+                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/ANONYMOUS_METHOD_DECLARATION_BRACES/@EntryValue"">NEW_LINE</s:String>
+                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/CASE_BLOCK_BRACES/@EntryValue"">NEW_LINE</s:String>
                                                            	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/EMPTY_BLOCK_STYLE/@EntryValue"">TOGETHER</s:String>
-                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/INITIALIZER_BRACES/@EntryValue"">END_OF_LINE</s:String>
-                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/INVOCABLE_DECLARATION_BRACES/@EntryValue"">END_OF_LINE</s:String>
-                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/OTHER_BRACES/@EntryValue"">END_OF_LINE</s:String>
+                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/INITIALIZER_BRACES/@EntryValue"">NEW_LINE</s:String>
+                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/INVOCABLE_DECLARATION_BRACES/@EntryValue"">NEW_LINE</s:String>
+                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/OTHER_BRACES/@EntryValue"">NEW_LINE</s:String>
                                                            	<s:Boolean x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/PLACE_CATCH_ON_NEW_LINE/@EntryValue"">False</s:Boolean>
                                                            	<s:Boolean x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/PLACE_ELSE_ON_NEW_LINE/@EntryValue"">False</s:Boolean>
                                                            	<s:Boolean x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/PLACE_FINALLY_ON_NEW_LINE/@EntryValue"">False</s:Boolean>
                                                            	<s:Boolean x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/REMOVE_BLANK_LINES_NEAR_BRACES_IN_DECLARATIONS/@EntryValue"">False</s:Boolean>
-                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/TYPE_DECLARATION_BRACES/@EntryValue"">END_OF_LINE</s:String>
+                                                           	<s:String x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/TYPE_DECLARATION_BRACES/@EntryValue"">NEW_LINE</s:String>
                                                            	<s:Int64 x:Key=""/Default/CodeStyle/CodeFormatting/CSharpFormat/WRAP_LIMIT/@EntryValue"">190</s:Int64>
                                                            	<s:String x:Key=""/Default/CodeStyle/Naming/CSharpNaming/PredefinedNamingRules/=PrivateInstanceFields/@EntryIndexedValue"">&lt;Policy Inspect=""True"" Prefix="""" Suffix="""" Style=""aaBb"" /&gt;</s:String>
                                                            	<s:String x:Key=""/Default/CodeStyle/Naming/CSharpNaming/PredefinedNamingRules/=PublicFields/@EntryIndexedValue"">&lt;Policy Inspect=""True"" Prefix="""" Suffix="""" Style=""aaBb"" /&gt;</s:String>

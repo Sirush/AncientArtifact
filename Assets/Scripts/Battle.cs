@@ -86,7 +86,6 @@ public class Battle : MonoBehaviour {
             LeanTween.scale(go, new Vector3(.85f, .85f), .5f).setLoopPingPong().setEase(LeanTweenType.easeOutCirc);
             go.GetComponentInChildren<NicerOutline>().enabled = true;
 
-
             if (card.IsUseableOnAllAllies)
             {
                 _battleStack.Enqueue(() => card.UseCardOnTarget(Enemies.ToArray()));

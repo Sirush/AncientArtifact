@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
             go.GetComponent<Character>().AddCard("Fist");
             go.GetComponent<Character>().AddCard("Fist");
         }
-        GetComponent<Battle>().StartBattle();
     }
 
     public static void DoEvent(EventBase e)
@@ -103,5 +102,9 @@ public class GameManager : MonoBehaviour
     public static Trait GetTrait(string trait)
     {
         return Current.Traits[trait];
+    }
+
+    public void StartBattle() {
+        GetComponent<Battle>().StartBattle();
     }
 }
