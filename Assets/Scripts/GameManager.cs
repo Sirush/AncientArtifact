@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public GameObject UIEventText, UIEventButton;
     public GameObject CardTemplate;
 
+
     void Start()
     {
         if (Current == null)
@@ -32,8 +33,9 @@ public class GameManager : MonoBehaviour
         foreach (var c in GetAliveCharacters())
         {
             c.AddItem("Axe");
-            c.AddItem("Axe");
-            c.AddItem("Axe");
+            c.AddItem("Katana");
+            c.AddItem("Pickaxe");
+            c.AddCard("Fist");
         }
         GetComponent<Battle>().StartBattle();
     }

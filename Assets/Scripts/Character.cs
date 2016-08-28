@@ -21,14 +21,11 @@ public class Character : MonoBehaviour
     [SerializeField] int _health = 5;
 
 
-    // Use this for initialization
-    void Start()
+    void Awake()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        Traits = new List<Trait>();
+        Inventory = new List<Item>();
+        Deck = new List<Card>();
     }
 
     public void AddItem(string name)
@@ -38,12 +35,13 @@ public class Character : MonoBehaviour
         Inventory.Add(item);
         foreach (var card in item.GetCards())
         {
-            AddCard(card);
+            Deck.Add(card);
         }
     }
 
-    public void AddCard(Card card)
+    public void AddCard(string name)
     {
+        var card = CardCollection.GetCard(name).Clone();
         Deck.Add(card);
     }
 
@@ -62,5 +60,10 @@ public class Character : MonoBehaviour
         {
             _health = value;
         }
+    }
+
+    public void CleanDeck()
+    {
+        Deck.RemoveAll((c) => c.UseNumber <= 0);
     }
 }

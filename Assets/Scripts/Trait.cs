@@ -7,7 +7,7 @@ public class Trait {
 
     public string Name;
     public string Description;
-    public List<Card> Cards = new List<Card>();
+    public List<string> Cards = new List<string>();
 
     private Color _color;
 

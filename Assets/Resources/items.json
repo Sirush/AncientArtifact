@@ -5,5 +5,19 @@
         "Description": "A sturdy axe",
         "Tags": ["Sharp"],
         "Cards": ["Axe5", "Axe5", "Axe6"]
-    }
+    },
+        {
+            "Id": "Katana",
+            "Name": "Katana",
+            "Description": "A trusty weeb's sword",
+            "Tags": ["Sharp"],
+            "Cards": ["Katana12", "Katana11", "Katana10", "Katana10"]
+        },
+                {
+                    "Id": "Pickaxe",
+                    "Name": "Pickaxe",
+                    "Description": "A solid pickaxe",
+                    "Tags": ["Pierce"],
+                    "Cards": ["Pickaxe3"]
+                },
 ]

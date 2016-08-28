@@ -13,16 +13,15 @@ public class Battle : MonoBehaviour {
 
     private Queue<Action> _battleStack;
     private List<GameObject> _cardsObject;
+    private List<int> _alreadyPlayed;
 
     // Use this for initialization
     void Awake()
     {
         _cardsObject = new List<GameObject>();
+        _alreadyPlayed = new List<int>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {}
 
     public void StartBattle()
     {
@@ -41,8 +40,17 @@ public class Battle : MonoBehaviour {
             Destroy(o);
         }
         _cardsObject.Clear();
+        foreach (var c in GameManager.GetAliveCharacters())
+        {
+            c.CleanDeck();
+        }
+        foreach (var c in Enemies)
+        {
+            c.CleanDeck();
+        }
         DrawCards();
         UpdateHealth();
+        _alreadyPlayed.Clear();
     }
 
     void UpdateHealth()
@@ -108,7 +116,7 @@ public class Battle : MonoBehaviour {
 
         e1.callback.AddListener((e) =>
         {
-            DisableCardSelect(self);
+            DisableCardSelectAll();
 
             LeanTween.scale(go, new Vector3(.85f, .85f), .5f).setLoopPingPong().setEase(LeanTweenType.easeOutCirc);
 
@@ -116,9 +124,15 @@ public class Battle : MonoBehaviour {
 
             go.GetComponentInChildren<NicerOutline>().enabled = true;
             if (card.IsUseableOnAllAllies)
+            {
+                PlayCard(self);
                 _battleStack.Enqueue(() => card.UseCardOnTarget(allies.ToArray()));
+            }
             if (card.IsUseableOnAllEnemies)
+            {
+                PlayCard(self);
                 _battleStack.Enqueue(() => card.UseCardOnTarget(Enemies.ToArray()));
+            }
             if (card.IsUseableOnAllies)
                 for (int j = 0; j < allies.Count; j++)
                 {
@@ -130,8 +144,8 @@ public class Battle : MonoBehaviour {
                             .gameObject.GetComponent<Button>()
                             .onClick.AddListener(() =>
                             {
+                                PlayCard(self);
                                 _battleStack.Enqueue(() => { card.UseCardOnTarget(target); });
-                                ClearButtons();
                             });
                     }
                 }
@@ -144,8 +158,8 @@ public class Battle : MonoBehaviour {
                         .gameObject.GetComponent<Button>()
                         .onClick.AddListener(() =>
                         {
+                            PlayCard(self);
                             _battleStack.Enqueue(() => { card.UseCardOnTarget(enemy); });
-                            ClearButtons();
                         });
                 }
             if (card.IsUseableOnSelf)
@@ -153,11 +167,34 @@ public class Battle : MonoBehaviour {
                 BattleCanvas.transform.FindChildren("Ally" + self)
                     .FindChildren("Attack")
                     .gameObject.GetComponent<Button>()
-                    .onClick.AddListener(() => _battleStack.Enqueue(() => card.UseCardOnTarget(allies[self])));
+                    .onClick.AddListener(() =>
+                    {
+                        PlayCard(self);
+                        _battleStack.Enqueue(() => card.UseCardOnTarget(allies[self]));
+                    });
             }
         });
 
         t1.triggers.Add(e1);
+    }
+
+    void PlayCard(int who)
+    {
+        var allies = GameManager.GetAliveCharacters();
+        _alreadyPlayed.Add(who);
+        DisableCardSelect(who);
+        for (int i = 0; i < allies.Count; i++)
+        {
+            if (!_alreadyPlayed.Contains(i))
+                EnableCardSelect(i);
+        }
+        ClearButtons();
+    }
+
+    void DisableCardSelectAll()
+    {
+        for (int i = 0; i < GameManager.GetAliveCharacters().Count; i++)
+            DisableCardSelect(i);
     }
 
     void DisableCardSelect(int who)
@@ -165,6 +202,14 @@ public class Battle : MonoBehaviour {
         foreach (Transform card in BattleCanvas.transform.FindChildren("Ally" + who).FindChildren("CardPosition"))
         {
             card.GetComponent<EventTrigger>().enabled = false;
+        }
+    }
+
+    void EnableCardSelect(int who)
+    {
+        foreach (Transform card in BattleCanvas.transform.FindChildren("Ally" + who).FindChildren("CardPosition"))
+        {
+            card.GetComponent<EventTrigger>().enabled = true;
         }
     }
 
