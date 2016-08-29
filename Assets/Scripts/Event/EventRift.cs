@@ -48,17 +48,5 @@ public class EventRift : EventBase
             },
             null
         ));
-
-        _actions.Add(new EventData(
-            "Tool",
-            "Cross with",
-            null,
-            (i) =>
-            {
-                var item = i;
-                GameManager.DisplayEventResult("<color=blue>" + item.User.Name + "</color> makes a makeshift bridge with the <color=yellow>" + item.Name +
-                                               "</color> and everyone can cross.");
-            }
-        ));
     }
 }

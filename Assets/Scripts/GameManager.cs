@@ -23,8 +23,12 @@ public class GameManager : MonoBehaviour
     public Sprite SIGN_ATK, SIGN_DEF, SIGN_USE;
     public Sprite FBase, MBase;
     public List<Sprite> FHair, MHair, Eyes, Nose, Mouth;
+    public GameObject Body;
+    public List<GameObject> FBHair, MBHair;
 
     public static Dictionary<string, Func<EventBase>> _events;
+
+    public List<Sprite> MonsterSprites;
 
     public Party ChildParty;
 
@@ -49,7 +53,49 @@ public class GameManager : MonoBehaviour
         AddTraits();
         AddEvents();
 
+        SpawnKids();
         Test();
+    }
+
+    void SpawnKids()
+    {
+        Character kid;
+        for (int i = 0; i < 4; i++)
+        {
+            kid = new Character();
+            kid.IsKid = true;
+            var body = Instantiate(Body);
+            var hair = Instantiate(kid.RandomizePortrait());
+
+            kid.Inventory = new List<Item>();
+            kid.Deck = new List<Card>();
+            kid.Traits = new List<Trait>();
+            kid.MaxHealth = 20;
+            kid.SetHealth(20);
+
+            body.transform.SetParent(ChildParty.transform, false);
+            hair.transform.SetParent(body.transform, false);
+
+            Traits.ElementAt(UnityEngine.Random.Range(0, Traits.Count)).Value.AddToCharacter(kid);
+            Traits.ElementAt(UnityEngine.Random.Range(0, Traits.Count)).Value.AddToCharacter(kid);
+            Traits.ElementAt(UnityEngine.Random.Range(0, Traits.Count)).Value.AddToCharacter(kid);
+
+            body.transform.localPosition += new Vector3(-.2f * i, 0);
+            ChildParty.Characters.Add(body);
+            Characters.Add(kid);
+        }
+    }
+
+    void Test()
+    {
+        foreach (var c in GetAliveCharacters())
+        {
+            c.AddItem("Stones");
+            c.AddItem("Axe");
+            c.AddCard("Fist");
+        }
+        GameManager.AddItemToGlobalInventory("Stones");
+        GameManager.AddItemToGlobalInventory("Saber");
     }
 
     void Update()
@@ -71,14 +117,28 @@ public class GameManager : MonoBehaviour
         Traits.Add("Agile", new Trait("Agile", "Agile.", Color.green));
         Traits.Add("Lucky", new Trait("Lucky", "Lucky.", Color.green));
         Traits.Add("BigPocket", new Trait("Big Pocket", "+1 item slot.", Color.green));
+        Traits["BigPocket"].Effect = (c) => c.MaxItems += 1;
         Traits.Add("Hoarder", new Trait("Hoarder", "+2 item slot.", Color.green));
+        Traits["Hoarder"].Effect = (c) => c.MaxItems += 2;
         Traits.Add("DimensionalPocket", new Trait("Dimensional Pocket", "A magic pocket. +3 item slot", Color.green));
+        Traits["DimensionalPocket"].Effect = (c) => c.MaxItems += 3;
         Traits.Add("PocketDonator", new Trait("Pocket Donator", "-1 item slot +1 party item slot.", Color.green));
+        Traits["PocketDonator"].Effect = (c) =>
+        {
+            c.MaxItems -= 1;
+            GameManager.MaxGlobalItem += 1;
+        };
         Traits.Add("KingOfBullies", new Trait("King of Bullies", "You can play all your cards.", Color.green));
         Traits.Add("Tough", new Trait("Tough", "More life.", Color.green));
+        Traits["Tough"].Effect = (c) =>
+        {
+            c.MaxHealth += 5;
+            c.SetHealth(99);
+        };
         Traits.Add("SleepyHead", new Trait("Sleepy Head", "You love dreaming.", Color.green));
+        Traits["SleepyHead"].Effect = (c) => c.AddItem("DreamHead");
         Traits.Add("Historian", new Trait("Historian", "You know everything.", Color.green));
-
+        Traits["Historian"].Effect = (c) => c.AddItem("Excalibur2");
         Traits.Add("Injured", new Trait("Injured", "Bruised.", Color.red));
         Traits["Injured"].Cards.Add("Injured");
         Traits["Injured"].Cards.Add("Injured");
@@ -199,26 +259,7 @@ public class GameManager : MonoBehaviour
         DoEvent(_events.ElementAt(rand).Value());
     }
 
-    void Test()
-    {
-        foreach (var c in GetAliveCharacters())
-        {
-            c.AddItem("Stones");
-            c.AddItem("Axe");
-            c.AddCard("Fist");
-        }
-        GameManager.AddItemToGlobalInventory("Stones");
-        GameManager.AddItemToGlobalInventory("Saber");
-        foreach (var go in GameObject.FindGameObjectsWithTag("Enemy"))
-        {
-            go.GetComponent<Character>().AddCard("Fist");
-            go.GetComponent<Character>().AddCard("Fist");
-            go.GetComponent<Character>().AddCard("Fist");
-            go.GetComponent<Character>().AddCard("Fist");
-            go.GetComponent<Character>().AddCard("Fist");
-            go.GetComponent<Character>().AddCard("Fist");
-        }
-    }
+
 
     public static void DoEvent(EventBase e)
     {

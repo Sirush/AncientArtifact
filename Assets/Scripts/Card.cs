@@ -34,6 +34,8 @@ public class Card
                 target.SetHealth(-Attack);
             if (Shield != 0)
                 target.Shield += Shield;
+            if (IsDodge)
+                target.Dodge++;
             if (SpecialEffect != null)
                 SpecialEffect(User, target);
         }

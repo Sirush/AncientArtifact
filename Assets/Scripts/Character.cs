@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine.UI;
 using UnityEngine.UI.Extensions;
 
-public class Character : MonoBehaviour
+public class Character : ScriptableObject
 {
     public string Name;
 
@@ -28,6 +29,7 @@ public class Character : MonoBehaviour
     public List<Trait> Traits;
     public List<Card> Deck;
     public int Stunned = 0;
+    public int Dodge = 0;
 
     public Sprite Base, Hair, Mouth, Nose, Eyes;
 
@@ -43,7 +45,7 @@ public class Character : MonoBehaviour
 
     void Start()
     {
-        RandomizePortrait();
+        //RandomizePortrait();
     }
 
     public void AddItem(string name)
@@ -106,6 +108,11 @@ public class Character : MonoBehaviour
 
     public void SetHealth(int value)
     {
+        if (Dodge > 0)
+        {
+            Dodge--;
+            return;
+        }
         if (value < 0)
         {
             Shield += value;
@@ -118,6 +125,9 @@ public class Character : MonoBehaviour
         {
             _health = value;
         }
+
+        if (_health > MaxHealth)
+            _health = MaxHealth;
 
         if (_health <= 0 && IsKid)
         {
@@ -140,44 +150,83 @@ public class Character : MonoBehaviour
         Deck.RemoveAll((c) => c.UseNumber <= 0);
     }
 
-    public void RandomizePortrait()
+    public GameObject RandomizePortrait()
     {
+        GameObject hair;
         var rand = UnityEngine.Random.Range(0, 2);
         if (rand == 0)
         {
+            rand = Random.Range(0, GameManager.Current.FHair.Count);
             Base = GameManager.Current.FBase;
-            Hair = GameManager.Current.FHair[Random.Range(0, GameManager.Current.FHair.Count)];
+            Hair = GameManager.Current.FHair[rand];
+            hair = GameManager.Current.FBHair[rand];
         } else
         {
+            rand = Random.Range(0, GameManager.Current.MHair.Count);
             Base = GameManager.Current.MBase;
-            Hair = GameManager.Current.MHair[Random.Range(0, GameManager.Current.MHair.Count)];
+            Hair = GameManager.Current.MHair[rand];
+            hair = GameManager.Current.MBHair[rand];
         }
 
         Eyes = GameManager.Current.Eyes[Random.Range(0, GameManager.Current.Eyes.Count)];
         Nose = GameManager.Current.Nose[Random.Range(0, GameManager.Current.Nose.Count)];
         Mouth = GameManager.Current.Mouth[Random.Range(0, GameManager.Current.Mouth.Count)];
+
+        return hair;
     }
 
     public GameObject DisplayPortrait()
     {
         var portrait = GameObject.Instantiate(GameManager.Current.PortraitTemplate).transform;
 
-        portrait.FindChildren("Base").GetComponent<Image>().sprite = Base;
-        portrait.FindChildren("Hair").GetComponent<Image>().sprite = Hair;
-        portrait.FindChildren("Eyes").GetComponent<Image>().sprite = Eyes;
-        portrait.FindChildren("Nose").GetComponent<Image>().sprite = Nose;
-        portrait.FindChildren("Mouth").GetComponent<Image>().sprite = Mouth;
-
-        var shadow = Instantiate(portrait);
-        foreach (var outline in shadow.GetComponentsInChildren<BestFitOutline>())
+        if (IsKid)
         {
-            outline.enabled = true;
+            portrait.FindChildren("Base").GetComponent<Image>().sprite = Base;
+            portrait.FindChildren("Hair").GetComponent<Image>().sprite = Hair;
+            portrait.FindChildren("Eyes").GetComponent<Image>().sprite = Eyes;
+            portrait.FindChildren("Nose").GetComponent<Image>().sprite = Nose;
+            portrait.FindChildren("Mouth").GetComponent<Image>().sprite = Mouth;
+
+            var shadow = Instantiate(portrait);
+            foreach (var outline in shadow.GetComponentsInChildren<BestFitOutline>())
+            {
+                outline.enabled = true;
+            }
+            portrait.SetParent(shadow);
+            portrait.FindChildren("Glow").gameObject.SetActive(false);
+            portrait.FindChildren("Background").gameObject.SetActive(false);
+
+
+            return shadow.gameObject;
+        } else
+        {
+            portrait.FindChildren("Base").GetComponent<Image>().sprite = GameManager.Current.MonsterSprites[UnityEngine.Random.Range(0, GameManager.Current.MonsterSprites.Count)];
+            portrait.FindChildren("Hair").gameObject.SetActive(false);
+            portrait.FindChildren("Eyes").gameObject.SetActive(false);
+            portrait.FindChildren("Nose").gameObject.SetActive(false);
+            portrait.FindChildren("Mouth").gameObject.SetActive(false);
+
+            return portrait.gameObject;
         }
-        portrait.SetParent(shadow);
-        portrait.FindChildren("Glow").gameObject.SetActive(false);
-        portrait.FindChildren("Background").gameObject.SetActive(false);
-
-
-        return shadow.gameObject;
     }
+
+    void RandomizeName()
+    {
+        TextAsset text = (TextAsset) Resources.Load("name", typeof(TextAsset));
+        StringReader reader = new StringReader(text.text);
+        List<string> list = new List<string>();
+        string line;
+
+        while (true)
+        {
+            line = reader.ReadLine();
+            if (line != null)
+                list.Add(line);
+            else
+                break;
+        }
+
+        Name = list[UnityEngine.Random.Range(0, list.Count)];
+    }
+
 }

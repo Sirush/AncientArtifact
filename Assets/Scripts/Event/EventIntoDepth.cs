@@ -54,9 +54,8 @@ public class EventIntoDepth : EventBase
             null,
             (i) =>
             {
-                i.User.AddItem("Depth");
-                GameManager.DisplayEventResult(
-                    "Another one. Another one to conquer, another one to convert. To welcome a new brother into the Depth. Such pressure is nothing for you, from the binocles of the mask you see the new one. You take it and your companions are free of its power. Now, it is for you to pass on.");
+                i.User.AddItem("MaskDepth");
+                GameManager.DisplayEventResult("Another one. Another one to conquer, another one to convert. To welcome a new brother into the Depth. Such pressure is nothing for you, from the binocles of the mask you see the new one. You take it and your companions are free of its power. Now, it is for you to pass on.");
             }
         ));
     }

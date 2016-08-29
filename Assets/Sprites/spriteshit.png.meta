@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: f307ed14042d8d347852be393f384536
-timeCreated: 1472413585
+timeCreated: 1472504996
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,18 @@ TextureImporter:
     21300024: spriteshit_12
     21300026: spriteshit_13
     21300028: spriteshit_14
+    21300030: spriteshit_15
+    21300032: spriteshit_16
+    21300034: spriteshit_17
+    21300036: spriteshit_18
+    21300038: spriteshit_19
+    21300040: spriteshit_20
+    21300042: spriteshit_21
+    21300044: spriteshit_22
+    21300046: spriteshit_23
+    21300048: spriteshit_24
+    21300050: spriteshit_25
+    21300052: spriteshit_26
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -72,7 +84,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -85,7 +97,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 43
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -98,7 +110,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 86
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -111,7 +123,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 129
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -124,7 +136,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 172
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -137,7 +149,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 215
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -150,7 +162,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 258
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -163,7 +175,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 301
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -176,7 +188,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 344
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -189,7 +201,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 387
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -202,7 +214,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 430
-        y: 0
+        y: 192
         width: 43
         height: 64
       alignment: 0
@@ -214,8 +226,8 @@ TextureImporter:
       name: spriteshit_11
       rect:
         serializedVersion: 2
-        x: 473
-        y: 0
+        x: 0
+        y: 128
         width: 43
         height: 64
       alignment: 0
@@ -227,8 +239,8 @@ TextureImporter:
       name: spriteshit_12
       rect:
         serializedVersion: 2
-        x: 516
-        y: 0
+        x: 43
+        y: 128
         width: 43
         height: 64
       alignment: 0
@@ -240,8 +252,8 @@ TextureImporter:
       name: spriteshit_13
       rect:
         serializedVersion: 2
-        x: 559
-        y: 0
+        x: 86
+        y: 128
         width: 43
         height: 64
       alignment: 0
@@ -253,8 +265,164 @@ TextureImporter:
       name: spriteshit_14
       rect:
         serializedVersion: 2
-        x: 602
-        y: 0
+        x: 129
+        y: 128
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_15
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 128
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_16
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 128
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_17
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 128
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_18
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 128
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_19
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 128
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_20
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 128
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_21
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 128
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_23
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 64
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_24
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 64
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_25
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 64
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spriteshit_26
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 64
         width: 43
         height: 64
       alignment: 0

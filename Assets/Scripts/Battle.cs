@@ -16,6 +16,7 @@ public class Battle : MonoBehaviour {
     private List<int> _alreadyPlayed;
     private int _currentTurn; //0 = player 1 = enemy
     private List<List<Card>> _enemiesCards;
+    private int _played;
 
     // Use this for initialization
     void Awake()
@@ -35,10 +36,40 @@ public class Battle : MonoBehaviour {
         DrawCards();
     }
 
+
     public void EndBattle()
     {
         GameManager.ResumeTimer();
         BattleCanvas.SetActive(false);
+    }
+
+    void SpawnMonsters()
+    {
+        int number = UnityEngine.Random.Range(2, 4);
+        for (int i = 0; i < number; i++)
+        {
+            var monster = new Character();
+
+            monster.MaxHealth = UnityEngine.Random.Range(15, 30);
+            monster.SetHealth(99);
+
+            monster.AddCard("Katana12");
+            monster.AddCard("Axe5");
+            monster.AddCard("Axe5");
+            monster.AddCard("Axe6");
+            monster.AddCard("Saber7");
+            monster.AddCard("Spade3");
+            monster.AddCard("Spade3");
+            monster.AddCard("Bardiche7");
+            monster.AddCard("Stone2");
+            monster.AddCard("Stone2");
+            monster.AddCard("Grenade6");
+            monster.AddCard("Rope1");
+            monster.AddCard("Rope1");
+            monster.AddCard("Excalibur");
+            monster.AddCard("Insomnia");
+            monster.AddCard("EyeGuard");
+        }
     }
 
     public void PlayTurn()
@@ -87,6 +118,7 @@ public class Battle : MonoBehaviour {
         }
         if (Enemies.Count <= 0)
             EndBattle();
+        _played = 0;
 
     }
 
@@ -177,6 +209,7 @@ public class Battle : MonoBehaviour {
             if (c.Stunned > 0)
             {
                 c.Stunned--;
+                _played++;
                 continue;
             }
 
@@ -188,6 +221,9 @@ public class Battle : MonoBehaviour {
                 rand1 = UnityEngine.Random.Range(0, c.Deck.Count);
                 rand2 = UnityEngine.Random.Range(0, c.Deck.Count);
             }
+
+            if (c.HasTrait("OneHanded"))
+                rand2 = rand1;
 
             var c1 = c.Deck[rand1];
             var c2 = c.Deck[rand2];
@@ -316,6 +352,13 @@ public class Battle : MonoBehaviour {
                 EnableCardSelect(i);
         }
         ClearButtons();
+        _played++;
+
+        if (_played >= GameManager.GetAliveCharacters().Count)
+            BattleCanvas.transform.FindChildren("Play Turn").GetComponent<Button>().interactable = true;
+        else
+            BattleCanvas.transform.FindChildren("Play Turn").GetComponent<Button>().interactable = false;
+
     }
 
     void DisableCardSelectAll()

@@ -28,10 +28,7 @@ public class EventBottomHole : EventBase
             "Rope",
             "Use",
             null,
-            (i) =>
-            {
-                GameManager.DisplayEventResult("You escalate the layers of stones that collapsed with a rope. You’re free.");
-            }
+            (i) => { GameManager.DisplayEventResult("You escalate the layers of stones that collapsed with a rope. You’re free."); }
         ));
 
         _actions.Add(new EventData(
@@ -42,7 +39,8 @@ public class EventBottomHole : EventBase
             {
                 i.User.AddItem("MaskImpostor");
                 i.User.RemoveItem(i);
-                GameManager.DisplayEventResult("Something’s wrong. You see symbols on parts of the ground. It’s ancient, and evil ! You ear a voice from beyond : “Fake” ! Your blade darkens and changes into a mask!");
+                GameManager.DisplayEventResult(
+                    "Something’s wrong. You see symbols on parts of the ground. It’s ancient, and evil ! You ear a voice from beyond : “Fake” ! Your blade darkens and changes into a mask!");
             }
         ));
     }

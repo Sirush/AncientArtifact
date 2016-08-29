@@ -21,7 +21,7 @@ public struct EventResult
     }
 };
 
-public class EventBase : MonoBehaviour
+public class EventBase
 {
 
     protected class EventData

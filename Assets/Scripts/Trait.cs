@@ -1,13 +1,16 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class Trait {
+public class Trait
+{
 
     public string Name;
     public string Description;
     public List<string> Cards = new List<string>();
+    public Action<Character> Effect;
 
     private Color _color;
 
@@ -21,10 +24,12 @@ public class Trait {
 
     public void AddToCharacter(Character c)
     {
-        foreach(var card in Cards)
+        if (Effect != null)
+            Effect(c);
+        foreach (var card in Cards)
         {
             c.AddCard(card);
-            c.Traits.Add(this);
         }
+        c.Traits.Add(this);
     }
 }
