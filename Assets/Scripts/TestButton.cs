@@ -10,10 +10,11 @@ public class TestButton : MonoBehaviour {
     void Update() {}
 
     public void CallEvent() {
-        GameManager.DoEvent(new EventWoodenBlockade());
+        //GameManager.RandomEvent();
+        GameManager.DoEvent(new EventRift());
     }
 
     public void StartBattle() {
-        GameManager.Current.StartBattle();
+        GameManager.StartBattle();
     }
 }

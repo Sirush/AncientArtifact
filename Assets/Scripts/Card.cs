@@ -24,7 +24,7 @@ public class Card
     [JsonProperty("UseAllAllies")] public bool IsUseableOnAllAllies;
     [JsonProperty("UseAllEnemies")] public bool IsUseableOnAllEnemies;
 
-    [JsonIgnore] public Action<Character> SpecialEffect;
+    [JsonIgnore] public Action<Character, Character> SpecialEffect; //User, target
 
     public void UseCardOnTarget(params Character[] targets)
     {
@@ -34,6 +34,8 @@ public class Card
                 target.SetHealth(-Attack);
             if (Shield != 0)
                 target.Shield += Shield;
+            if (SpecialEffect != null)
+                SpecialEffect(User, target);
         }
         UseNumber -= 1;
     }

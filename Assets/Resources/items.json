@@ -54,22 +54,75 @@
         ]
     },
     {
-        "Id":"Pickaxe",
-        "Name":"Pickaxe",
-        "Description":"A solid pickaxe",
+        "Id":"Spade",
+        "Name":"Spade",
+        "Description":"A solid spade.",
         "Tags":[
-            "Pierce"
+            "Sharp"
         ],
         "Cards":[
-            "Pickaxe3"
+            "Spade3"
+        ]
+    },
+    {
+        "Id":"Twig",
+        "Name":"Twig",
+        "Description":"Just a twig.",
+        "Tags":[
+            "Tool"
+        ],
+        "Cards":[
+            "Twig2",
+            "Twig2",
+            "Twig2",
+            "Twig2"
         ]
     },
     {
         "Id":"Excalibur",
         "Name":"Excalibur",
-        "Description":"The sword of myths",
+        "Description":"The sword of myths.",
         "Tags":[
             "Sharp"
+        ],
+        "Cards":[
+            "Excalibur"
+        ]
+    },
+    {
+        "Id":"ThrowKnives",
+        "Name":"Throwing Knives",
+        "Description":"Careful with those.",
+        "Tags":[
+            "Sharp",
+            "Ranged"
+        ],
+        "Cards":[
+            "Knife",
+            "Knife",
+            "Knife"
+        ]
+    },
+    {
+        "Id":"Bardiche",
+        "Name":"Bardiche",
+        "Description":"A long blade at the end of a long stick. Heavy stuff.",
+        "Tags":[
+            "Sharp",
+            "Ranged"
+        ],
+        "Cards":[
+            "Bardiche7",
+            "Bardiche8"
+        ]
+    },
+    {
+        "Id":"Excalibur2",
+        "Name":"Excalibur",
+        "Description":"The sword of myths.",
+        "Tags":[
+            "Sharp",
+            "Excalibur2"
         ],
         "Cards":[
             "Excalibur"
@@ -112,7 +165,8 @@
         "Name":"Stones",
         "Description":"A pocketful of little stones found on your way.",
         "Tags":[
-            "Ranged"
+            "Ranged",
+            "Stones"
         ],
         "Cards":[
             "Stone1",
@@ -177,9 +231,10 @@
     {
         "Id":"Rope",
         "Name":"Rope",
-        "Description":"A rope. Often useful",
+        "Description":"A rope. Often useful.",
         "Tags":[
-            "Tool"
+            "Tool",
+            "Rope"
         ],
         "Cards":[
             "Rope1",
@@ -199,38 +254,183 @@
             "Plank2"
         ]
     },
-
-                          {
+    {
+        "Id":"MaskImpostor",
+        "Name":"Mask of the Impostor",
+        "Description":"A dark mask giving power to the possessor's lies.",
+        "Tags":[
+            "Curse",
+            "Protection"
+        ],
+        "Cards":[
+            "WhiteLie",
+            "WhiteLie",
+            "Omission",
+            "OneLie",
+            "OneLie",
+            "OneLie",
+            "Curse1"
+        ]
+    },
+    {
         "Id":"MaskDepth",
         "Name":"Mask of the Depth",
         "Description":"A huge mask of iron and a strange soft material. It vibrates with rage",
         "Tags":[
-						"Curse",
-          "Protection"
+            "Curse",
+            "Protection",
+            "MaskDepth"
         ],
         "Cards":[
-          "CallDepth",
-          "Carnage",
-          "Drowning",
-          "Drowning",
-          "Drowning",
-          "Drowning"
+            "CallDepth",
+            "Carnage",
+            "Drowning",
+            "Drowning",
+            "Drowning",
+            "Drowning"
         ]
     },
-      {
-        "Id":"BootsSwift",
-        "Name":"Boots of Swiftness",
-        "Description":"A pair of beautiful white leather shoes. It fits all foot.",
+    {
+        "Id":"DreamHead",
+        "Name":"Dreaming Head",
+        "Description":"What a weird head of stone in front of your eyes. You could gaze in it for all eternity. Share a dream.",
         "Tags":[
-            "Boots",
-            "Fast"
+            "Sleep"
         ],
         "Cards":[
-            "Dodge2",
-            "Dodge2",
-          "Dodge2",
-            "LightningSpeed"
+            "SweetDream",
+            "SweetDream",
+            "SweetDream",
+            "SweetDream",
+            "SweetDream",
+            "SweetDream",
+            "Insomnia"
         ]
     },
-]
+    {
+        "Id":"Gemstone",
+        "Name":"Gemstone",
+        "Description":"How beautiful it is! Glowing in your hand. Wonderful!",
+        "Tags":[
+            "Heal"
+        ],
+        "Cards":[
+            "Flame",
+            "Flame",
+            "Flame",
+            "Flame2",
+            "Phoenix"
+        ]
+    },
+    {
+        "Id":"RadiantShield",
+        "Name":"Radiant Shield",
+        "Description":"A shining piece of equipement with horns for the drama.",
+        "Tags":[
+            "Shield",
+            "Protection"
+        ],
+        "Cards":[
+            "RadGuard1",
+            "RadGuard2",
+            "RadGuard3"
+        ]
+    },
+    {
+        "Id":"Shield",
+        "Name":"Wooden Shield",
+        "Description":"A very nice little wooden shield.",
+        "Tags":[
+            "Shield",
+            "Protection"
+        ],
+        "Cards":[
+            "Shield1",
+            "Shield1",
+            "Shield2"
+        ]
+    },
+    {
+        "Id":"WhiteShoes",
+        "Name":"White Shoes",
+        "Description":"A pair of shoes full of life and energy.",
+        "Tags":[
+            "Dodge",
+            "Protection",
+            "Curse"
+        ],
+        "Cards":[
+            "WhiteHeal1",
+            "WhiteHeal2",
+            "Dodge2",
+            "Dodge2"
+        ]
+    },
+    {
+        "Id":"PointyHat",
+        "Name":"Pointy Hat",
+        "Description":"A strange hat going toward the sky",
+        "Tags":[
+            "Protection",
+            "Curse"
+        ],
+        "Cards":[
+            "Book",
+            "Book",
+            "Book2",
+            "Curse1",
+            "Curse1"
+        ]
+    },
+    {
+        "Id":"Hammer",
+        "Name":"War Hammer",
+        "Description":"A huge monstruous chuck of iron.",
+        "Tags":[
+            "heavy"
+        ],
+        "Cards":[
+            "Hammer"
+        ]
+    },
+    {
+        "Id":"HSword",
+        "Name":"Heavy Sword",
+        "Description":"A gigantic sword to be wielded by children.",
+        "Tags":[
+            "heavy"
+        ],
+        "Cards":[
+            "HSword",
+            "HSword"
+        ]
+    },
+    {
+        "Id":"Guns",
+        "Name":"Gunnery",
+        "Description":"Strange machinations capable of tremendous destruction.",
+        "Tags":[
+            "distance"
+        ],
+        "Cards":[
+            "Gun",
+            "Gun",
+            "Gun"
+        ]
+    },
+    {
+        "Id":"EyeShield",
+        "Name":"Soul Shield",
+        "Description":"A bizarre shield covered in codes. A big living eye and four little ones watch you constantly.",
+        "Tags":[
+            "Protection",
+            "shield"
+        ],
+        "Cards":[
+            "EyeGuard",
+            "EyeGuard2",
+            "EyeGuard3"
+        ]
+    }
 
+]

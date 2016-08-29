@@ -11,18 +11,27 @@ public class Character : MonoBehaviour
     public int Health
     {
         get { return _health; }
-        set { _health = value; }
+        set
+        {
+            _health = value;
+            if (_health > MaxHealth)
+                _health = MaxHealth;
+        }
     }
 
+
+    public bool IsKid;
+    public int MaxHealth = 20;
     public int Shield;
     public int MaxItems = 4;
     public List<Item> Inventory;
     public List<Trait> Traits;
     public List<Card> Deck;
+    public int Stunned = 0;
 
     public Sprite Base, Hair, Mouth, Nose, Eyes;
 
-    [SerializeField] int _health = 5;
+    [SerializeField] private int _health = 20;
 
 
     void Awake()
@@ -46,6 +55,7 @@ public class Character : MonoBehaviour
         }
         var item = ItemCollection.GetItem(name).Clone();
         item.InitializeItem();
+        item.User = this;
         Inventory.Add(item);
         foreach (var card in item.GetCards())
         {
@@ -60,6 +70,7 @@ public class Character : MonoBehaviour
             GameManager.AddItemToGlobalInventory(item);
             return;
         }
+        item.User = this;
         Inventory.Add(item);
         foreach (var card in item.GetCards())
         {
@@ -71,6 +82,7 @@ public class Character : MonoBehaviour
     {
         if (GameManager.GlobalInventory.Count < GameManager.MaxGlobalItem)
         {
+            item.User = null;
             GameManager.AddItemToGlobalInventory(item);
             RemoveItem(item);
         }
@@ -106,10 +118,17 @@ public class Character : MonoBehaviour
         {
             _health = value;
         }
+
+        if (_health <= 0 && IsKid)
+        {
+            GameManager.KillKid(this);
+        }
     }
 
     public void Death()
-    {}
+    {
+        SetHealth(-999);
+    }
 
     public bool HasTrait(string trait)
     {

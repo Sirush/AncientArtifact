@@ -32,8 +32,7 @@ public class EventBottomlessPit : EventBase
                 if (rand > chance)
                 {
                     c.Death();
-                    GameManager.DisplayEventResult("<color=blue>" + c.Name +
-                                                   "</color> manages barely to set the ladder into motion and the party can carry on. Sadly, he also loses his footing, falls into the botomless pit and <color=red>dies</colors>");
+                    GameManager.DisplayEventResult("<color=blue>" + c.Name + "</color> manages barely to set the ladder into motion and the party can carry on. Sadly, he also loses his footing, falls into the botomless pit and <color=red>dies</colors>");
                 } else
                 {
                     GameManager.DisplayEventResult("<color=blue>" + c.Name + "</color> manages barely to set the ladder into motion and the party can carry on.");

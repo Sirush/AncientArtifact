@@ -55,7 +55,7 @@ public class Item {
 
     public void Remove()
     {
-
+        User.RemoveItem(this);
     }
 
 }

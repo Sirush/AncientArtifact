@@ -17,11 +17,11 @@ public static class ItemCollection {
         foreach (var a in arr)
         {
             Item item = JsonConvert.DeserializeObject<Item>(a.ToString());
-            var load = Resources.Load<Sprite>(a["Id"].ToString());
+            var load = Resources.Load<Sprite>("Sprites/" + a["Id"].ToString());
             if (load)
                 item.ItemSprite = load;
             else
-                item.ItemSprite = Resources.Load<Sprite>("Missing");
+                item.ItemSprite = Resources.Load<Sprite>("Sprites/Missing");
 
             item.DefaultCards = new List<Card>();
             foreach (var c in a["Cards"].ToObject<List<string>>())

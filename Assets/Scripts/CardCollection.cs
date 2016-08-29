@@ -18,17 +18,15 @@ public static class CardCollection {
         foreach (var a in arr)
         {
             Card card = JsonConvert.DeserializeObject<Card>(a.ToString());
-            var load = Resources.Load<Sprite>(a["Sprite"].ToString());
+            var load = Resources.Load<Sprite>("Sprites/" + a["Sprite"].ToString());
             if (load)
                 card.CardSprite = load;
             else
-                card.CardSprite = Resources.Load<Sprite>("Missing");
+                card.CardSprite = Resources.Load<Sprite>("Sprites/Missing");
             _cards.Add(a["Id"].ToString(), card);
         }
 
-        Action<Character> stun = null;
-        Action<Character> heal = null;
-        Action<Character> breakWeapon =null;
+        Action<Character, Character> stun = (user, target) => target.Stunned++;
 
         GetCard("CallDepth").SpecialEffect = stun;
         GetCard("Drowning").SpecialEffect = stun;
@@ -36,18 +34,17 @@ public static class CardCollection {
         GetCard("Misery4").SpecialEffect = stun;
         GetCard("Misery5").SpecialEffect = stun;
         GetCard("CharmingDance").SpecialEffect = stun;
-        GetCard("CrystalKnife4").SpecialEffect = heal; //heal self 4
-        GetCard("CrystalKnife5").SpecialEffect = heal; //heal self 5
-        GetCard("Evicerate").SpecialEffect = heal; //heal self 15
-        GetCard("Rend").SpecialEffect = breakWeapon; //Break weapon CrystalKnife
+        GetCard("SweetDream").SpecialEffect = stun;
 
-
-
-
+        GetCard("CrystalKnife4").SpecialEffect = (user, target) => user.SetHealth(4); //heal self 4
+        GetCard("CrystalKnife5").SpecialEffect = (user, target) => user.SetHealth(5); //heal self 5
+        GetCard("Evicerate").SpecialEffect = (user, target) => user.SetHealth(15); //heal self 15
+        GetCard("Rend").SpecialEffect = (user, target) => user.RemoveItem(user.Inventory.Find(c => c.Name == "CrystalKnife")); //Break weapon CrystalKnife
     }
 
     public static Card GetCard(string name)
     {
+        //Debug.Log(name);
         return _cards[name];
     }
 

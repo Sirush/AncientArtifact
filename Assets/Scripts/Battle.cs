@@ -28,10 +28,17 @@ public class Battle : MonoBehaviour {
 
     public void StartBattle()
     {
+        GameManager.PauseTimer();
         BattleCanvas.SetActive(true);
         _battleStack = new Queue<Action>();
         UpdateHealth();
         DrawCards();
+    }
+
+    public void EndBattle()
+    {
+        GameManager.ResumeTimer();
+        BattleCanvas.SetActive(false);
     }
 
     public void PlayTurn()
@@ -67,6 +74,20 @@ public class Battle : MonoBehaviour {
             DrawCards();
             StartCoroutine("EnemyTurn");
         }
+
+        List<Character> toremove = new List<Character>();
+        foreach (var e in Enemies)
+        {
+            if (e.Health <= 0)
+                toremove.Add(e);
+        }
+        foreach (var e in toremove)
+        {
+            Enemies.Remove(e);
+        }
+        if (Enemies.Count <= 0)
+            EndBattle();
+
     }
 
     private IEnumerator EnemyTurn()
@@ -81,6 +102,12 @@ public class Battle : MonoBehaviour {
             //Pick randomly one of two cards
             int rand = UnityEngine.Random.Range(0, 2);
             var card = _enemiesCards[i][rand];
+
+            if (Enemies[i].Stunned > 0)
+            {
+                Enemies[i].Stunned--;
+                continue;
+            }
 
             var go = BattleCanvas.transform.FindChildren("Enemy" + i).FindChildren("CardPosition").GetChild(rand).gameObject;
             LeanTween.scale(go, new Vector3(.85f, .85f), .5f).setLoopPingPong().setEase(LeanTweenType.easeOutCirc);
@@ -146,6 +173,13 @@ public class Battle : MonoBehaviour {
         for (int i = 0; i < characters.Count; i++)
         {
             var c = characters[i];
+
+            if (c.Stunned > 0)
+            {
+                c.Stunned--;
+                continue;
+            }
+
             int rand1 = 0;
             int rand2 = 0;
 
