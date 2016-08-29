@@ -1,0 +1,409 @@
+fileFormatVersion: 2
+guid: ef3232c4006028f49b869f6627b7fba6
+timeCreated: 1472471920
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Ludum Sheet_0
+    21300002: Ludum Sheet_1
+    21300004: Ludum Sheet_2
+    21300006: Ludum Sheet_3
+    21300008: Ludum Sheet_4
+    21300010: Ludum Sheet_5
+    21300012: Ludum Sheet_6
+    21300014: Ludum Sheet_7
+    21300016: Ludum Sheet_8
+    21300018: Ludum Sheet_9
+    21300020: Ludum Sheet_10
+    21300022: Ludum Sheet_11
+    21300024: Ludum Sheet_12
+    21300026: Ludum Sheet_13
+    21300028: Ludum Sheet_14
+    21300030: Ludum Sheet_15
+    21300032: Ludum Sheet_16
+    21300034: Ludum Sheet_17
+    21300036: Ludum Sheet_18
+    21300038: Ludum Sheet_19
+    21300040: Ludum Sheet_20
+    21300042: Ludum Sheet_21
+    21300044: Ludum Sheet_22
+    21300046: Ludum Sheet_23
+    21300048: Ludum Sheet_24
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ludum Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2528
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 3160
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3792
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 4424
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 5056
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 5688
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 6320
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 6952
+        y: 3108
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 2528
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 3160
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 3792
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 4424
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 5056
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 5688
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 6320
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 6952
+        y: 2120
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Ludum Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1132
+        width: 632
+        height: 988
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

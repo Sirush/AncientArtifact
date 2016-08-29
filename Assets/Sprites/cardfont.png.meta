@@ -1,24 +1,29 @@
 fileFormatVersion: 2
-guid: f307ed14042d8d347852be393f384536
-timeCreated: 1472413585
+guid: 629dfbd03d8d14943b63b4429907a34f
+timeCreated: 1472425060
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: spriteshit_0
-    21300002: spriteshit_1
-    21300004: spriteshit_2
-    21300006: spriteshit_3
-    21300008: spriteshit_4
-    21300010: spriteshit_5
-    21300012: spriteshit_6
-    21300014: spriteshit_7
-    21300016: spriteshit_8
-    21300018: spriteshit_9
-    21300020: spriteshit_10
-    21300022: spriteshit_11
-    21300024: spriteshit_12
-    21300026: spriteshit_13
-    21300028: spriteshit_14
+    21300000: cardfont_0
+    21300002: cardfont_1
+    21300004: cardfont_2
+    21300006: cardfont_3
+    21300008: cardfont_4
+    21300010: cardfont_5
+    21300012: cardfont_6
+    21300014: cardfont_7
+    21300016: cardfont_8
+    21300018: cardfont_9
+    21300020: cardfont_10
+    21300022: cardfont_11
+    21300024: cardfont_12
+    21300026: cardfont_13
+    21300028: cardfont_14
+    21300030: cardfont_15
+    21300032: cardfont_16
+    21300034: cardfont_17
+    21300036: cardfont_18
+    21300038: cardfont_19
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -42,9 +47,9 @@ TextureImporter:
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 2048
+  maxTextureSize: 1024
   textureSettings:
-    filterMode: 2
+    filterMode: -1
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -68,197 +73,184 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spriteshit_0
+      name: cardfont_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 43
-        height: 64
+        x: 254
+        y: 619
+        width: 250
+        height: 291
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_1
+      name: cardfont_3
       rect:
         serializedVersion: 2
-        x: 43
-        y: 0
-        width: 43
-        height: 64
+        x: 682
+        y: 603
+        width: 142
+        height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_2
+      name: cardfont_5
       rect:
         serializedVersion: 2
-        x: 86
-        y: 0
-        width: 43
-        height: 64
+        x: 1013
+        y: 636
+        width: 226
+        height: 245
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_3
+      name: cardfont_8
       rect:
         serializedVersion: 2
-        x: 129
-        y: 0
-        width: 43
-        height: 64
+        x: 1337
+        y: 662
+        width: 266
+        height: 146
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_4
+      name: cardfont_9
       rect:
         serializedVersion: 2
-        x: 172
-        y: 0
-        width: 43
-        height: 64
+        x: 358
+        y: 158
+        width: 83
+        height: 148
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_5
+      name: cardfont_11
       rect:
         serializedVersion: 2
-        x: 215
-        y: 0
-        width: 43
-        height: 64
+        x: 512
+        y: 168
+        width: 37
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_6
+      name: cardfont_12
       rect:
         serializedVersion: 2
-        x: 258
-        y: 0
-        width: 43
-        height: 64
+        x: 623
+        y: 169
+        width: 81
+        height: 131
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_7
+      name: cardfont_13
       rect:
         serializedVersion: 2
-        x: 301
-        y: 0
-        width: 43
-        height: 64
+        x: 773
+        y: 175
+        width: 73
+        height: 130
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_8
+      name: cardfont_14
       rect:
         serializedVersion: 2
-        x: 344
-        y: 0
-        width: 43
-        height: 64
+        x: 889
+        y: 182
+        width: 66
+        height: 124
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_9
+      name: cardfont_15
       rect:
         serializedVersion: 2
-        x: 387
-        y: 0
-        width: 43
-        height: 64
+        x: 1004
+        y: 184
+        width: 74
+        height: 130
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_10
+      name: cardfont_16
       rect:
         serializedVersion: 2
-        x: 430
-        y: 0
-        width: 43
-        height: 64
+        x: 1117
+        y: 193
+        width: 66
+        height: 126
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_11
+      name: cardfont_17
       rect:
         serializedVersion: 2
-        x: 473
-        y: 0
-        width: 43
-        height: 64
+        x: 1228
+        y: 193
+        width: 79
+        height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_12
+      name: cardfont_18
       rect:
         serializedVersion: 2
-        x: 516
-        y: 0
-        width: 43
-        height: 64
+        x: 1357
+        y: 195
+        width: 80
+        height: 130
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: spriteshit_13
+      name: cardfont_19
       rect:
         serializedVersion: 2
-        x: 559
-        y: 0
-        width: 43
-        height: 64
+        x: 1485
+        y: 201
+        width: 67
+        height: 129
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: spriteshit_14
-      rect:
-        serializedVersion: 2
-        x: 602
-        y: 0
-        width: 43
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

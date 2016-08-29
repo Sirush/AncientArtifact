@@ -1,23 +1,236 @@
 [
     {
-        "Id": "Axe",
-        "Name": "Axe",
-        "Description": "A sturdy axe",
-        "Tags": ["Sharp"],
-        "Cards": ["Axe5", "Axe5", "Axe6"]
+        "Id":"Gladius",
+        "Name":"Gladius",
+        "Description":"A short double-edged blade made for battle.",
+        "Tags":[
+            "Sharp"
+        ],
+        "Cards":[
+            "Gladius6",
+            "Gladius7"
+        ]
     },
-        {
-            "Id": "Katana",
-            "Name": "Katana",
-            "Description": "A trusty weeb's sword",
-            "Tags": ["Sharp"],
-            "Cards": ["Katana12", "Katana11", "Katana10", "Katana10"]
-        },
-                {
-                    "Id": "Pickaxe",
-                    "Name": "Pickaxe",
-                    "Description": "A solid pickaxe",
-                    "Tags": ["Pierce"],
-                    "Cards": ["Pickaxe3"]
-                },
+    {
+        "Id":"Saber",
+        "Name":"Saber",
+        "Description":"A short sabber. Careful, it cuts.",
+        "Tags":[
+            "Sharp"
+        ],
+        "Cards":[
+            "Saber7",
+            "Saber7",
+            "Saber7",
+            "Saber8",
+            "Saber8"
+        ]
+    },
+    {
+        "Id":"Axe",
+        "Name":"Axe",
+        "Description":"A sturdy axe",
+        "Tags":[
+            "Sharp"
+        ],
+        "Cards":[
+            "Axe5",
+            "Axe5",
+            "Axe6"
+        ]
+    },
+    {
+        "Id":"Katana",
+        "Name":"Katana",
+        "Description":"A trusty weeb's sword",
+        "Tags":[
+            "Sharp"
+        ],
+        "Cards":[
+            "Katana12",
+            "Katana11",
+            "Katana10",
+            "Katana10"
+        ]
+    },
+    {
+        "Id":"Pickaxe",
+        "Name":"Pickaxe",
+        "Description":"A solid pickaxe",
+        "Tags":[
+            "Pierce"
+        ],
+        "Cards":[
+            "Pickaxe3"
+        ]
+    },
+    {
+        "Id":"Excalibur",
+        "Name":"Excalibur",
+        "Description":"The sword of myths",
+        "Tags":[
+            "Sharp"
+        ],
+        "Cards":[
+            "Excalibur"
+        ]
+    },
+    {
+        "Id":"StaffOfMisery",
+        "Name":"Staff of Misery",
+        "Description":"A staff made in a strange soft material. It glows with energy!",
+        "Tags":[
+            "Sharp",
+            "Ranged"
+        ],
+        "Cards":[
+            "StaffOfMisery3",
+            "Misery5",
+            "Misery4",
+            "Misery3"
+        ]
+    },
+    {
+        "Id":"OldDagger",
+        "Name":"Old Dagger",
+        "Description":"A short weapon of ancient times. Easy to wield.",
+        "Tags":[
+            "Sharp",
+            "Guard"
+        ],
+        "Cards":[
+            "OldDagger2",
+            "OldDagger2",
+            "OldDagger3",
+            "OldDagger3",
+            "OldDagger4",
+            "OldDaggerGuard"
+        ]
+    },
+    {
+        "Id":"Stones",
+        "Name":"Stones",
+        "Description":"A pocketful of little stones found on your way.",
+        "Tags":[
+            "Ranged"
+        ],
+        "Cards":[
+            "Stone1",
+            "Stone1",
+            "Stone2"
+        ]
+    },
+    {
+        "Id":"JadeAmulet",
+        "Name":"Jade Amulet",
+        "Description":"A stone bringing luck.",
+        "Tags":[
+            "Protection"
+        ],
+        "Cards":[
+            "Dodge1",
+            "Dodge1",
+            "Dodge1"
+        ]
+    },
+    {
+        "Id":"FluffyBoots",
+        "Name":"Ancient Fluffy Boots",
+        "Description":"A pair of little boots. They are very comfortable.",
+        "Tags":[
+            "Boots",
+            "Fluffy"
+        ],
+        "Cards":[
+            "Dodge2",
+            "Dodge2",
+            "CharmingDance",
+            "FluffyKick"
+        ]
+    },
+    {
+        "Id":"CrystalKnife",
+        "Name":"Smoked Crystals Knife",
+        "Description":"A sacrificial knife made of two different stones.",
+        "Tags":[
+            "Sharp",
+            "Explosive"
+        ],
+        "Cards":[
+            "CrystalKnife4",
+            "CrystalKnife5",
+            "Evicerate",
+            "Rend"
+        ]
+    },
+    {
+        "Id":"Grenade",
+        "Name":"Explosive Fruit",
+        "Description":"A weird fruit made of a soft but hard material. Strings are keeping a metal piece against it.",
+        "Tags":[
+            "Explosive"
+        ],
+        "Cards":[
+            "Grenade6"
+        ]
+    },
+    {
+        "Id":"Rope",
+        "Name":"Rope",
+        "Description":"A rope. Often useful",
+        "Tags":[
+            "Tool"
+        ],
+        "Cards":[
+            "Rope1",
+            "Rope1"
+        ]
+    },
+    {
+        "Id":"Plank",
+        "Name":"Wooden Plank",
+        "Description":"A wooden plank. Be careful of the splinters.",
+        "Tags":[
+            "Tool",
+            "Blunt"
+        ],
+        "Cards":[
+            "Plank3",
+            "Plank2"
+        ]
+    },
+
+                          {
+        "Id":"MaskDepth",
+        "Name":"Mask of the Depth",
+        "Description":"A huge mask of iron and a strange soft material. It vibrates with rage",
+        "Tags":[
+						"Curse",
+          "Protection"
+        ],
+        "Cards":[
+          "CallDepth",
+          "Carnage",
+          "Drowning",
+          "Drowning",
+          "Drowning",
+          "Drowning"
+        ]
+    },
+      {
+        "Id":"BootsSwift",
+        "Name":"Boots of Swiftness",
+        "Description":"A pair of beautiful white leather shoes. It fits all foot.",
+        "Tags":[
+            "Boots",
+            "Fast"
+        ],
+        "Cards":[
+            "Dodge2",
+            "Dodge2",
+          "Dodge2",
+            "LightningSpeed"
+        ]
+    },
 ]
+

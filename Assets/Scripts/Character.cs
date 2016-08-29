@@ -62,6 +62,16 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void Death()
+    {
+
+    }
+
+    public bool HasTrait(string trait)
+    {
+        return Traits.Contains(GameManager.GetTrait(trait));
+    }
+
     public void CleanDeck()
     {
         Deck.RemoveAll((c) => c.UseNumber <= 0);

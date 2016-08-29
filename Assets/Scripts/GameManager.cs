@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public GameObject UIEventText, UIEventButton;
     public GameObject CardTemplate;
 
+    public List<Sprite> CardNumbers;
+    public Sprite SIGN_ATK, SIGN_DEF, SIGN_USE;
+
 
     void Start()
     {

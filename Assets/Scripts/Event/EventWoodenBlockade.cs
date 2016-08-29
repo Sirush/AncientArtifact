@@ -18,8 +18,20 @@ public class EventWoodenBlockade : EventBase
             (c) =>
             {
                 var rand = Random.Range(0f, 1f);
-                Debug.Log(rand);
-                if (rand < .5f)
+
+                var chance = .5f;
+                if (c.HasTrait("Strength"))
+                    chance += .3f;
+                if (c.HasTrait("Agile"))
+                    chance += .3f;
+                if (c.HasTrait("Injured"))
+                    chance -= .1f;
+                if (c.HasTrait("Lucky"))
+                    chance += .2f;
+                if (c.HasTrait("Unlucky"))
+                    chance -= .3f;
+
+                if (rand > chance)
                 {
                     GameManager.GetTrait("Injured").AddToCharacter(c);
                     c.Health -= 1;
