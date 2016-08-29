@@ -11,6 +11,8 @@ public class Card
     public string Name, Description;
     [JsonIgnore]public Sprite CardSprite;
 
+    public Character User;
+
     [JsonProperty("Uses")] public int UseNumber = 1;
     public int Attack, Shield;
 

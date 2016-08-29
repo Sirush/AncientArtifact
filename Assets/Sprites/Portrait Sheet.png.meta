@@ -1,0 +1,451 @@
+fileFormatVersion: 2
+guid: ba7528c65995bd4459f830c2b9866732
+timeCreated: 1472481568
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Portrait Sheet_0
+    21300002: Portrait Sheet_1
+    21300004: Portrait Sheet_2
+    21300006: Portrait Sheet_3
+    21300008: Portrait Sheet_4
+    21300010: Portrait Sheet_5
+    21300012: Portrait Sheet_6
+    21300014: Portrait Sheet_7
+    21300016: Portrait Sheet_8
+    21300018: Portrait Sheet_9
+    21300020: Portrait Sheet_10
+    21300022: Portrait Sheet_11
+    21300024: Portrait Sheet_12
+    21300026: Portrait Sheet_13
+    21300028: Portrait Sheet_14
+    21300030: Portrait Sheet_15
+    21300032: Portrait Sheet_16
+    21300034: Portrait Sheet_17
+    21300036: Portrait Sheet_18
+    21300038: Portrait Sheet_19
+    21300040: Portrait Sheet_20
+    21300042: Portrait Sheet_21
+    21300044: Portrait Sheet_22
+    21300046: Portrait Sheet_23
+    21300048: Portrait Sheet_24
+    21300050: Portrait Sheet_25
+    21300052: Portrait Sheet_26
+    21300054: Portrait Sheet_27
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Portrait Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3208
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 3208
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 3208
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 3208
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 3208
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 3208
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 3208
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 3208
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2320
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 2320
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 2320
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 2320
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 2320
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 2320
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 2320
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 2320
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1432
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 1432
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1432
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1432
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 1432
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 1432
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 1432
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 1432
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 544
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_25
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 544
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_26
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 544
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Portrait Sheet_27
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 544
+        width: 500
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
