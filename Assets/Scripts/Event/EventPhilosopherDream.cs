@@ -8,7 +8,7 @@ public class EventPhilosopherDream : EventBase
 
     public override void InitializeEvent()
     {
-        Text = "A great dark chasm opens under your feet, as the whole damn place is shaking.";
+        Text = "You come across a pedestal on which is put a beautiful red gem. It’s glowing gently of a warm light.";
 
         _actions = new List<EventData>();
 

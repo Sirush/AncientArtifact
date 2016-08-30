@@ -9,7 +9,8 @@ using Newtonsoft.Json;
 public class Card
 {
     public string Name, Description;
-    [JsonIgnore]public Sprite CardSprite;
+    [JsonIgnore] public Sprite CardSprite;
+    public string SpriteString;
 
     public Character User;
 
@@ -44,6 +45,12 @@ public class Card
 
     public GameObject DisplayCard()
     {
+        var load = Resources.Load<Sprite>("Sprites/" + SpriteString);
+        if (load)
+        {
+            CardSprite = load;
+        }
+
         var card = GameObject.Instantiate(GameManager.Current.CardTemplate).transform;
         //card.FindChildren("Name").GetComponent<Text>().text = Name;
         if (CardSprite != null)

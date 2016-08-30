@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
     public List<Sprite> MonsterSprites;
 
     public Party ChildParty;
+
+    public GameObject GameOver;
 
     private float _gameTimer;
     private bool _isTimerPaused = true;
@@ -93,6 +96,7 @@ public class GameManager : MonoBehaviour
             c.AddItem("Stones");
             c.AddItem("Axe");
             c.AddCard("Fist");
+            c.AddCard("Axe5");
         }
         GameManager.AddItemToGlobalInventory("Stones");
         GameManager.AddItemToGlobalInventory("Saber");
@@ -107,6 +111,12 @@ public class GameManager : MonoBehaviour
         {
             RandomEvent();
             _nextEvent += UnityEngine.Random.Range(6f, 12f);
+        }
+
+        if (Current.Characters.Count <= 0)
+        {
+            PauseTimer();
+            GameOver.SetActive(true);
         }
     }
 
@@ -251,6 +261,27 @@ public class GameManager : MonoBehaviour
                 return x;
             }
         );
+
+        _events.Add("Treasure1", () =>
+            {
+                var x = new EventTreasure();
+                return x;
+            }
+        );
+
+        _events.Add("Treasure2", () =>
+            {
+                var x = new EventTreasure();
+                return x;
+            }
+        );
+
+        _events.Add("Treasure3", () =>
+            {
+                var x = new EventTreasure();
+                return x;
+            }
+        );
     }
 
     public static void RandomEvent()
@@ -306,6 +337,9 @@ public class GameManager : MonoBehaviour
                     var onItem = a.OnItem;
                     var item = a.EventItem;
                     button.onClick.AddListener(() => onItem(item));
+                } else
+                {
+                    Destroy(obj);
                 }
             }
         }
@@ -391,6 +425,17 @@ public class GameManager : MonoBehaviour
         Current.Characters.Remove(c);
         Current.ChildParty.Characters[kill].GetComponentInChildren<CharacterMovemement>().enabled = false;
         Current.ChildParty.Characters.RemoveAt(kill);
+
+        if (Current.Characters.Count <= 0)
+        {
+            PauseTimer();
+            GameObject.Find("GameOver").SetActive(true);
+        }
+    }
+
+    public void TitleScreen()
+    {
+        SceneManager.LoadScene("TitleScreen");
     }
 
     public static void ResumeTimer()

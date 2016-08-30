@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-public static class ItemCollection {
+public static class ItemCollection
+{
 
     private static Dictionary<string, Item> _items;
 
@@ -19,19 +20,21 @@ public static class ItemCollection {
             Item item = JsonConvert.DeserializeObject<Item>(a.ToString());
             var load = Resources.Load<Sprite>("Sprites/" + a["Id"].ToString());
             if (load)
+            {
                 item.ItemSprite = load;
-            else
+            } else
+            {
+                Debug.Log("couldnt load sprite " + a["Id"].ToString());
                 item.ItemSprite = Resources.Load<Sprite>("Sprites/Missing");
+            }
 
             item.DefaultCards = new List<Card>();
             foreach (var c in a["Cards"].ToObject<List<string>>())
             {
-                item.DefaultCards.Add(CardCollection.GetCard(c));
+                item.DefaultCards.Add(CardCollection.GetCard(c).Clone());
             }
             _items.Add(a["Id"].ToString(), item);
         }
-
-
     }
 
     public static Item GetItem(string name)

@@ -17,6 +17,7 @@ public class Battle : MonoBehaviour {
     private int _currentTurn; //0 = player 1 = enemy
     private List<List<Card>> _enemiesCards;
     private int _played;
+    private List<GameObject> _portraits;
 
     // Use this for initialization
     void Awake()
@@ -24,6 +25,7 @@ public class Battle : MonoBehaviour {
         _cardsObject = new List<GameObject>();
         _alreadyPlayed = new List<int>();
         _enemiesCards = new List<List<Card>>();
+        _portraits = new List<GameObject>();
     }
 
 
@@ -32,6 +34,7 @@ public class Battle : MonoBehaviour {
         GameManager.PauseTimer();
         BattleCanvas.SetActive(true);
         _battleStack = new Queue<Action>();
+        SpawnMonsters();
         UpdateHealth();
         DrawCards();
     }
@@ -51,7 +54,11 @@ public class Battle : MonoBehaviour {
             var monster = new Character();
 
             monster.MaxHealth = UnityEngine.Random.Range(15, 30);
-            monster.SetHealth(99);
+            monster.Health = monster.MaxHealth;
+
+            monster.Traits = new List<Trait>();
+            monster.Inventory = new List<Item>();
+            monster.Deck = new List<Card>();
 
             monster.AddCard("Katana12");
             monster.AddCard("Axe5");
@@ -69,6 +76,13 @@ public class Battle : MonoBehaviour {
             monster.AddCard("Excalibur");
             monster.AddCard("Insomnia");
             monster.AddCard("EyeGuard");
+
+            var portrait = monster.DisplayPortrait();
+            var go = BattleCanvas.transform.FindChildren("Enemy" + i).FindChildren("Portrait");
+            portrait.transform.SetParent(go, false);
+            _portraits.Add(portrait);
+
+            Enemies.Add(monster);
         }
     }
 
@@ -158,8 +172,8 @@ public class Battle : MonoBehaviour {
 
             else if (card.IsUseableOnAllies)
                 _battleStack.Enqueue(() => { card.UseCardOnTarget(Enemies[RandomExcludeSelf(i, Enemies.Count)]); });
-            else if (card.IsUseableOnSelf)
-                _battleStack.Enqueue(() => { card.UseCardOnTarget(Enemies[i]); });
+            /*else if (card.IsUseableOnSelf)
+                _battleStack.Enqueue(() => { card.UseCardOnTarget(Enemies[i]); });*/
 
             yield return new WaitForSeconds(1f);
         }
@@ -186,11 +200,17 @@ public class Battle : MonoBehaviour {
             BattleCanvas.transform.FindChildren("Ally" + i).FindChildren("Health").GetComponent<Text>().text =
                 allies[i].Health + " HP";
         }
-        for (int i = 0; i < Enemies.Count; i++)
+        for (int i = 0; i < 4; i++)
         {
-            BattleCanvas.transform.FindChildren("Enemy" + i).FindChildren("Health").GetComponent<Text>().text =
+            if (i < Enemies.Count)
+                BattleCanvas.transform.FindChildren("Enemy" + i).FindChildren("Health").GetComponent<Text>().text =
                 Enemies[i].Health + " HP";
+            else
+            {
+                BattleCanvas.transform.FindChildren("Enemy" + i).FindChildren("Health").GetComponent<Text>().text = "";
+            }
         }
+
     }
 
     public void DrawCards()
@@ -227,6 +247,8 @@ public class Battle : MonoBehaviour {
 
             var c1 = c.Deck[rand1];
             var c2 = c.Deck[rand2];
+            Debug.Log(c1.Name);
+            Debug.Log(c2.Name);
 
             if (_currentTurn == 1)
             {

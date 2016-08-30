@@ -22,7 +22,12 @@ public class InventoryUI : MonoBehaviour
         {
             var child = transform.FindChildren("Child" + i);
             var position = child.FindChildren("CardPosition");
-            child.FindChildren("Name").GetComponent<Text>().text = characters[i].Name;
+            var txt = characters[i].Name + " the ";
+            foreach (var trait in characters[i].Traits)
+            {
+                txt += trait.Name + " | ";
+            }
+            child.FindChildren("Name").GetComponent<Text>().text =txt;
             var portrait = characters[i].DisplayPortrait();
             portrait.transform.SetParent(child.FindChildren("PortraitPosition"), false);
             _objs.Add(portrait);

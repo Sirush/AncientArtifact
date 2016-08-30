@@ -20,9 +20,14 @@ public static class CardCollection {
             Card card = JsonConvert.DeserializeObject<Card>(a.ToString());
             var load = Resources.Load<Sprite>("Sprites/" + a["Sprite"].ToString());
             if (load)
+            {
+                card.SpriteString = a["Sprite"].ToString();
                 card.CardSprite = load;
-            else
+            } else
+            {
+                Debug.Log("couldnt load sprite " + a["Sprite"].ToString());
                 card.CardSprite = Resources.Load<Sprite>("Sprites/Missing");
+            }
             _cards.Add(a["Id"].ToString(), card);
         }
 

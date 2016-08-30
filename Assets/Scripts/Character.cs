@@ -160,12 +160,14 @@ public class Character : ScriptableObject
             Base = GameManager.Current.FBase;
             Hair = GameManager.Current.FHair[rand];
             hair = GameManager.Current.FBHair[rand];
+            RandomizeName(0);
         } else
         {
             rand = Random.Range(0, GameManager.Current.MHair.Count);
             Base = GameManager.Current.MBase;
             Hair = GameManager.Current.MHair[rand];
             hair = GameManager.Current.MBHair[rand];
+            RandomizeName(1);
         }
 
         Eyes = GameManager.Current.Eyes[Random.Range(0, GameManager.Current.Eyes.Count)];
@@ -210,9 +212,9 @@ public class Character : ScriptableObject
         }
     }
 
-    void RandomizeName()
+    void RandomizeName(int a)
     {
-        TextAsset text = (TextAsset) Resources.Load("name", typeof(TextAsset));
+        TextAsset text = (TextAsset) Resources.Load("name" + a, typeof(TextAsset));
         StringReader reader = new StringReader(text.text);
         List<string> list = new List<string>();
         string line;

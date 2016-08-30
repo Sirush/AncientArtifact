@@ -94,7 +94,7 @@
     {
         "Id":"Katana12",
         "Name":"Katana",
-        "Sprite":"Katana",
+        "Sprite":"Saber",
         "Description":"You slash it down without a second thought.",
         "Uses":1,
         "Attack":12,
@@ -109,7 +109,7 @@
     {
         "Id":"Katana11",
         "Name":"Katana",
-        "Sprite":"Katana",
+        "Sprite":"Saber",
         "Description":"You swing the blade in a beautiful arc.",
         "Uses":1,
         "Attack":11,
@@ -124,7 +124,7 @@
     {
         "Id":"Katana10",
         "Name":"Katana",
-        "Sprite":"Katana",
+        "Sprite":"Saber",
         "Description":"This is a solid Katana.",
         "Uses":1,
         "Attack":10,
@@ -949,7 +949,7 @@
     {
         "Id":"Injured",
         "Name":"Injured",
-        "Sprite":"Injured",
+        "Sprite":"Curse",
         "Description":"Ouch !",
         "Uses":1,
         "Attack":2,
